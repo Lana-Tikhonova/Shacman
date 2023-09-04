@@ -116,6 +116,10 @@ a:hover {
   color: #FFC02D;
 }
 
+iframe {
+  border: none;
+}
+
 img {
   max-width: 100%;
 }
@@ -1089,7 +1093,6 @@ span.breadcrumb_item {
   width: 40px;
   height: 40px;
   cursor: pointer;
-  z-index: 110;
   margin-left: auto;
 }
 .mobile_menu_btn span,
