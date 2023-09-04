@@ -767,20 +767,19 @@ span.breadcrumb_item {
 
 		span {
 			display: inline-block;
-
-			&:first-child {
-				max-width: 245px;
-				padding-right: 10px;
-			}
-
-			&:last-child {
-				font-size: 20px;
-				font-weight: 600;
-				color: $color_yellow;
-			}
-
 		}
 	}
+}
+
+.home_calc_list_title {
+	max-width: 245px;
+	padding-right: 10px;
+}
+
+.home_calc_list_price {
+	font-size: 20px;
+	font-weight: 600;
+	color: $color_yellow;
 }
 
 .block_list {
@@ -1844,7 +1843,7 @@ span.breadcrumb_item {
 		max-width: 175px;
 	}
 
-	.home_calc_list li span:last-child {
+	.home_calc_list_price {
 		font-size: 17px;
 	}
 
@@ -1993,15 +1992,13 @@ span.breadcrumb_item {
 		li {
 			flex-direction: column;
 			align-items: flex-start;
-
-			span {
-				&:first-child {
-					padding-right: 0;
-					max-width: 100%;
-					padding-bottom: 10px;
-				}
-			}
 		}
+	}
+
+	.home_calc_list_title {
+		padding-right: 0;
+		max-width: 100%;
+		padding-bottom: 10px;
 	}
 
 	.form_agreement {
