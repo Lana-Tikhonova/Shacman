@@ -317,6 +317,15 @@ form .btn {
   flex-direction: column;
   margin-bottom: 20px;
 }
+.form_input_group.error .form_input {
+  border: 1px solid red;
+}
+.form_input_group.error .form_input::-moz-placeholder {
+  color: red;
+}
+.form_input_group.error .form_input::placeholder {
+  color: red;
+}
 
 .form_input_caption {
   line-height: 121%;
@@ -330,6 +339,12 @@ form .btn {
   font-size: 18px;
   font-weight: 600;
   height: 48px;
+}
+.form_input::-moz-placeholder {
+  color: rgba(68, 68, 68, 0.53);
+}
+.form_input::placeholder {
+  color: rgba(68, 68, 68, 0.53);
 }
 
 /*----breadcrumb-----*/

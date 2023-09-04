@@ -343,7 +343,39 @@ form {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 20px;
+
+	&.error {
+		.form_input {
+			border: 1px solid red;
+
+			&::-webkit-input-placeholder {
+				color: red;
+			}
+
+			&:-moz-placeholder {
+				color: red;
+			}
+
+			&::-moz-placeholder {
+				color: red;
+			}
+
+			&:-ms-input-placeholder {
+				color: red;
+			}
+
+			&::-ms-input-placeholder {
+				color: red;
+			}
+
+			&::placeholder {
+				color: red;
+			}
+		}
+	}
 }
+
+
 
 .form_input_caption {
 	line-height: 121%;
@@ -357,6 +389,30 @@ form {
 	font-size: 18px;
 	font-weight: 600;
 	height: 48px;
+
+	&::-webkit-input-placeholder {
+		color: rgba(68, 68, 68, 0.53);
+	}
+
+	&:-moz-placeholder {
+		color: rgba(68, 68, 68, 0.53);
+	}
+
+	&::-moz-placeholder {
+		color: rgba(68, 68, 68, 0.53);
+	}
+
+	&:-ms-input-placeholder {
+		color: rgba(68, 68, 68, 0.53);
+	}
+
+	&::-ms-input-placeholder {
+		color: rgba(68, 68, 68, 0.53);
+	}
+
+	&::placeholder {
+		color: rgba(68, 68, 68, 0.53);
+	}
 }
 
 /*----breadcrumb-----*/

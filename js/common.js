@@ -109,5 +109,88 @@ $(document).ready(function () {
         fixMenu();
     });
 
+    const phoneInputs = document.querySelectorAll('.form_input[name="tel"]');
+    phoneInputs.forEach(input => {
+        IMask(input, {
+            mask: '+{7}(000)000-00-00'
+        })
+    })
+
+    function removeErr(e) {
+        e.target.closest('.form_input_group').classList.remove('error');
+    }
+    const forms = document.querySelectorAll('.validate_form');
+    forms.forEach(form => {
+        const userName = form.querySelector('.form_input[name="name"]');
+        const userPhone = form.querySelector('.form_input[name="tel"]');
+        userName.addEventListener('input', removeErr);
+        userPhone.addEventListener('input', removeErr);
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (userName.value.trim().length < 1) {
+                userName.closest('.form_input_group').classList.add('error')
+            }
+            if (userPhone.value.replace(/\D/g, '').length < 11) {
+                userPhone.closest('.form_input_group').classList.add('error')
+            }
+            const formErrors = form.querySelector('.error');
+            if (formErrors) return;
+            //backend ajax
+            console.log('Send');
+        });
+    });
+
+
+
 
 });
+window.onload = function () {
+
+    let cost = document.getElementById("cost"),
+        prepaid = document.getElementById("prepaid"),
+        calcInput = document.getElementsByClassName("inputfield"),
+        term = document.getElementById("term"),
+        payment = document.getElementById("payment"),
+        paymentResult,
+        monthPayment = document.getElementById('month-payment'),
+        stavka = 0.006;
+
+    cost.value = 1000000;
+    prepaid.value = 25;
+    term.value = 12;
+
+    payment.textContent = Math.floor(cost.value / 100 * prepaid.value);
+    payment.textContent = payment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+
+    paymentResult = payment.textContent.replace(/\s+/g, '');
+
+    monthPayment.textContent = Math.floor(
+        ((cost.value - paymentResult) / term.value) * 1.2
+    );
+    monthPayment.textContent = monthPayment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+
+
+    for (let i = 0; i < calcInput.length; i++) {
+        calcInput[i].onchange = function () {
+
+            if (cost.value > 15000000) cost.value = 15000000;
+            if (cost.value < 300000) cost.value = 300000;
+            if (prepaid.value < 5) prepaid.value = 5;
+            if (prepaid.value > 50) prepaid.value = 50;
+            if (term.value < 12) term.value = 12;
+            if (term.value > 50) term.value = 50;
+
+            payment.textContent = Math.floor(cost.value / 100 * prepaid.value);
+            payment.textContent = payment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+
+            paymentResult = payment.textContent.replace(/\s+/g, '');
+            paymentResult = Number(paymentResult);
+
+            monthPayment.textContent = Math.floor(
+                ((cost.value - paymentResult) / term.value) * 1.2
+            );
+            monthPayment.textContent = monthPayment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+
+        }
+    }
+};
