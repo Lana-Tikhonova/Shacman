@@ -337,6 +337,7 @@ form .btn {
 .form_input_wrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .text_error {
@@ -601,8 +602,9 @@ span.breadcrumb_item {
 .home_calc .form_input {
   border-color: transparent;
   text-align: center;
+}
+.home_calc .form_input_wrapper {
   max-width: 232px;
-  width: 100%;
 }
 .home_calc .form_input_group {
   align-items: center;
@@ -1434,7 +1436,7 @@ span.breadcrumb_item {
     margin-right: auto;
     margin-bottom: 20px;
   }
-  .home_calc .form_input {
+  .home_calc .form_input_wrapper {
     max-width: 190px;
   }
 }
@@ -1543,7 +1545,7 @@ span.breadcrumb_item {
   .form_input {
     font-size: 16px;
   }
-  .home_calc .form_input {
+  .home_calc .form_input_wrapper {
     max-width: 175px;
   }
   .home_calc_list li span:last-child {
@@ -1647,7 +1649,7 @@ span.breadcrumb_item {
     flex-direction: column;
     align-items: flex-start;
   }
-  .home_calc .form_input {
+  .home_calc .form_input_wrapper {
     max-width: 100%;
   }
   .home_calc_list li {
