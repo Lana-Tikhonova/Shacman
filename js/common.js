@@ -93,5 +93,21 @@ $(document).ready(function () {
         return false;
     });
 
+    function fixMenu(e) {
+        if ($(this).scrollTop() > 10) {
+            $('.mobile_menu_close').addClass('fix');
+            $('.mobile_menu_btn').addClass('fix');
+        } else {
+            $('.mobile_menu_close').removeClass('fix');
+            $('.mobile_menu_btn').removeClass('fix');
+        }
+    }
+    fixMenu();
+
+    $(window).scroll(function (e) {
+        e.preventDefault();
+        fixMenu();
+    });
+
 
 });
