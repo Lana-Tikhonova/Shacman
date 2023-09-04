@@ -125,13 +125,14 @@ $(document).ready(function () {
         const userPhone = form.querySelector('.form_input[name="tel"]');
         userName.addEventListener('input', removeErr);
         userPhone.addEventListener('input', removeErr);
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             if (userName.value.trim().length < 1) {
-                userName.closest('.form_input_group').classList.add('error')
+                userName.closest('.form_input_group').classList.add('error');
             }
             if (userPhone.value.replace(/\D/g, '').length < 11) {
-                userPhone.closest('.form_input_group').classList.add('error')
+                userPhone.closest('.form_input_group').classList.add('error');
             }
             const formErrors = form.querySelector('.error');
             if (formErrors) return;

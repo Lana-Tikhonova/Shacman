@@ -160,11 +160,17 @@
                     <form method="post" class="contacts_form validate_form">
                         <label class='form_input_group'>
                             <span class='form_input_caption'>Имя</span>
-                            <input type="text" name="name" placeholder="Ваше имя" class='form_input'>
+                            <div class='form_input_wrapper'>
+                                <input type="text" name="name" placeholder="Ваше имя" class='form_input'>
+                                <span class='text_error'>Заполните поле</span>
+                            </div>
                         </label>
                         <label class='form_input_group'>
                             <span class='form_input_caption'>Номер телефона</span>
-                            <input type="tel" name="tel" placeholder="+7 (921) 957-48-45" class='form_input'>
+                            <div class='form_input_wrapper'>
+                                <input type="tel" name="tel" placeholder="+7 (921) 957-48-45" class='form_input'>
+                                <span class='text_error'>Заполните поле</span>
+                            </div>
                         </label>
                         <button class='btn btn_grey' type="submit">Заказать</button>
                         <div class="form_agreement">Нажимая кнопку «Заказать» вы даете свое согласие на обработку

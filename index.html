@@ -95,35 +95,39 @@
                         <div class='home_calc_title'>Калькулятор лизинга</div>
                         <label class='form_input_group'>
                             <span class='form_input_caption'>Стоимость авто (₽)</span>
-                            <input type="text" id="cost" placeholder="1000000" class='form_input inputfield'
-                                value="1000000">
+                            <div class='form_input_wrapper'>
+                                <input type="text" id="cost" placeholder="1000000" class='form_input inputfield'
+                                    value="1000000">
+                            </div>
                         </label>
                         <label class='form_input_group'>
                             <span class='form_input_caption'>Размер аванса (%)</span>
-                            <input type="text" id="prepaid" placeholder="25" class='form_input inputfield' value="25">
+                            <div class='form_input_wrapper'>
+                                <input type="text" id="prepaid" placeholder="25" class='form_input inputfield'
+                                    value="25">
+                            </div>
                         </label>
                         <label class='form_input_group'>
                             <span class='form_input_caption'>Срок договора <br> (в месяцах)</span>
-                            <input type="text" id="term" placeholder="12" class='form_input inputfield' value="12">
+                            <div class='form_input_wrapper'>
+                                <input type="text" id="term" placeholder="12" class='form_input inputfield' value="12">
+                            </div>
                         </label>
                         <div class='home_calc_hr'></div>
                         <label class='form_input_group'>
                             <span class='form_input_caption'>Имя клиента</span>
-                            <input type="text" name="name" placeholder="Ваше имя" class='form_input'>
+                            <div class='form_input_wrapper'>
+                                <input type="text" name="name" placeholder="Ваше имя" class='form_input'>
+                                <span class='text_error'>Заполните поле</span>
+                            </div>
                         </label>
                         <label class='form_input_group'>
                             <span class='form_input_caption'>Номер телефона</span>
-                            <input type="tel" name="tel" placeholder="+7 (921) 957-48-45" class='form_input'>
+                            <div class='form_input_wrapper'>
+                                <input type="tel" name="tel" placeholder="+7 (921) 957-48-45" class='form_input'>
+                                <span class='text_error'>Заполните поле</span>
+                            </div>
                         </label>
-                        <!-- <ul class='home_calc_list'>
-                            <li><span>Первоначальный взнос:</span>
-                                <input type="text" id="payment" class='calc_total_input'>
-                            </li>
-                            <li><span>Ежемесячный платеж <br> с учетом НДС</span>
-
-                                <input type="text" id="month-payment" class='calc_total_input'>
-                            </li>
-                        </ul> -->
                         <ul class='home_calc_list'>
                             <li><span>Первоначальный взнос:</span>
                                 <span><span id="payment">250 000</span>₽</span>
@@ -525,11 +529,17 @@
                     <form method="post" class="contacts_form validate_form">
                         <label class='form_input_group'>
                             <span class='form_input_caption'>Имя</span>
-                            <input type="text" name="name" placeholder="Ваше имя" class='form_input'>
+                            <div class='form_input_wrapper'>
+                                <input type="text" name="name" placeholder="Ваше имя" class='form_input'>
+                                <span class='text_error'>Заполните поле</span>
+                            </div>
                         </label>
                         <label class='form_input_group'>
                             <span class='form_input_caption'>Номер телефона</span>
-                            <input type="tel" name="tel" placeholder="+7 (921) 957-48-45" class='form_input'>
+                            <div class='form_input_wrapper'>
+                                <input type="tel" name="tel" placeholder="+7 (921) 957-48-45" class='form_input'>
+                                <span class='text_error'>Заполните поле</span>
+                            </div>
                         </label>
                         <button class='btn btn_grey' type="submit">Заказать</button>
                         <div class="form_agreement">Нажимая кнопку «Заказать» вы даете свое согласие на обработку

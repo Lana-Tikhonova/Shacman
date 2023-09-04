@@ -317,6 +317,9 @@ form .btn {
   flex-direction: column;
   margin-bottom: 20px;
 }
+.form_input_group.error .text_error {
+  display: block;
+}
 .form_input_group.error .form_input {
   border: 1px solid red;
 }
@@ -331,6 +334,18 @@ form .btn {
   line-height: 121%;
 }
 
+.form_input_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_error {
+  font-size: 13px;
+  color: red;
+  margin-top: 2px;
+  display: none;
+}
+
 .form_input {
   border-radius: 5px;
   border: 1px solid rgba(68, 68, 68, 0.27);
@@ -339,6 +354,7 @@ form .btn {
   font-size: 18px;
   font-weight: 600;
   height: 48px;
+  width: 100%;
 }
 .form_input::-moz-placeholder {
   color: rgba(68, 68, 68, 0.53);

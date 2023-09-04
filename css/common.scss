@@ -345,6 +345,10 @@ form {
 	margin-bottom: 20px;
 
 	&.error {
+		.text_error {
+			display: block;
+		}
+
 		.form_input {
 			border: 1px solid red;
 
@@ -381,6 +385,18 @@ form {
 	line-height: 121%;
 }
 
+.form_input_wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.text_error {
+	font-size: 13px;
+	color: red;
+	margin-top: 2px;
+	display: none;
+}
+
 .form_input {
 	border-radius: 5px;
 	border: 1px solid rgba(68, 68, 68, 0.27);
@@ -389,6 +405,7 @@ form {
 	font-size: 18px;
 	font-weight: 600;
 	height: 48px;
+	width: 100%;
 
 	&::-webkit-input-placeholder {
 		color: rgba(68, 68, 68, 0.53);
