@@ -83,17 +83,20 @@
     <main>
         <div class='container'>
             <ul class='breadcrumb'>
-                <li>
-                    <a href="/" class='breadcrumb_item'>Главная</a>
+                <li class='breadcrumb_item'>
+                    <a href="/" class='breadcrumb_link'>Главная</a>
+                    <span class='breadcrumb_pipe'>→</span>
                 </li>
-                <li>
-                    <a href="/" class='breadcrumb_item'>Каталог</a>
+                <li class='breadcrumb_item'>
+                    <a href="/" class='breadcrumb_link'>Каталог</a>
+                    <span class='breadcrumb_pipe'>→</span>
                 </li>
-                <li>
-                    <a href="/" class='breadcrumb_item'>Самосвалы</a>
+                <li class='breadcrumb_item'>
+                    <a href="/" class='breadcrumb_link'>Самосвалы</a>
+                    <span class='breadcrumb_pipe'>→</span>
                 </li>
-                <li>
-                    <span class='breadcrumb_item'>Самосвал X3000 8x4 550 л.c. </span>
+                <li class='breadcrumb_item'>
+                    <span class='breadcrumb_link'>Самосвал X3000 8x4 550 л.c.</span>
                 </li>
             </ul>
         </div>
@@ -306,7 +309,7 @@
                     <div class='swiper'>
                         <div class='swiper-wrapper'>
                             <div class='swiper-slide'>
-                                <div class='block_item_wrapper'>
+                                <div class='catalog_item'>
                                     <div class='block_item'>
                                         <div class='block_item_content'>
                                             <span class='block_item_text'>
@@ -324,7 +327,7 @@
                                 </div>
                             </div>
                             <div class='swiper-slide'>
-                                <div class='block_item_wrapper'>
+                                <div class='catalog_item'>
                                     <div class='block_item'>
                                         <div class='block_item_content'>
                                             <span class='block_item_text'>
@@ -342,7 +345,7 @@
                                 </div>
                             </div>
                             <div class='swiper-slide'>
-                                <div class='block_item_wrapper'>
+                                <div class='catalog_item'>
                                     <div class='block_item'>
                                         <div class='block_item_content'>
                                             <span class='block_item_text'>
@@ -360,7 +363,7 @@
                                 </div>
                             </div>
                             <div class='swiper-slide'>
-                                <div class='block_item_wrapper'>
+                                <div class='catalog_item'>
                                     <div class='block_item'>
                                         <div class='block_item_content'>
                                             <span class='block_item_text'>
@@ -378,7 +381,7 @@
                                 </div>
                             </div>
                             <div class='swiper-slide'>
-                                <div class='block_item_wrapper'>
+                                <div class='catalog_item'>
                                     <div class='block_item'>
                                         <div class='block_item_content'>
                                             <span class='block_item_text'>
@@ -480,10 +483,14 @@
                 </div>
             </div>
         </section>
-        <!-- <section class='section bg_grey mb-10'>
+        <section class='section bg_grey mb-10'>
             <div class='container'>
                 <h3>доп заголовок</h3>
-                <div class="block_list">
+                <!-- класс block_list_col-3 для трех колонок (по умолчанию 4)
+                    класс block_list_grey для закрашивания серым всего блока
+                    класс block_list_grey_img для закрашивания серым только картинки
+                 -->
+                <div class="block_list block_list_col-3 block_list_grey_img">
                     <div class="block_col">
                         <div class="block_item">
                             <div class="block_item_content">
@@ -513,7 +520,7 @@
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
         <section class="contacts">
             <div class="container">
                 <div class="contacts_map">

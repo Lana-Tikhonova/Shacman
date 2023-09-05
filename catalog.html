@@ -8,7 +8,7 @@
     <meta name="description"
         content="Сделайте покупку техники Shacman доступной вместе с официальным дилером Большегруз. Качественные самосвалы, тягачи в наличии." />
     <meta name="keywords" content="" />
-    <title>Услуги</title>
+    <title>Каталог </title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- шрифты -->
     <link rel="preload" href="fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/common.css?2">
 </head>
 
-<body class=''>
+<body class='page_catalog'>
     <div class='fix_btns'>
         <a href="#" class='fix_btns_item'>
             <span class='fix_btns_item_anim fix_btns_item_anim_1'></span>
@@ -88,61 +88,161 @@
                     <span class='breadcrumb_pipe'>→</span>
                 </li>
                 <li class='breadcrumb_item'>
-                    <span class='breadcrumb_link'>Услуги</span>
+                    <span class='breadcrumb_link'>Каталог</span>
                 </li>
             </ul>
         </div>
         <section class='section'>
             <div class='container'>
-                <h1>Услуги</h1>
-                <div class='services_list'>
-                    <div class='services_col'>
-                        <div class='services_item'>
-                            <div class='services_item_img'>
-                                <img src="imgs/services_1.jpg" alt="">
-                            </div>
-                            <div class='services_item_bottom'>
-                                <div class='services_item_text'>Техническое обслуживание</div>
-                                <a href="#" class='btn'>Посмотреть</a>
-                            </div>
+                <!-- на странице каталога нужно добавить к боди класс page_catalog, нужно для того чтобы убирать на мобилке h1 -->
+                <h1>Каталог</h1>
+                <ul class='catalog_variants'>
+                    <li> <a class="catalog_variants_item" href="#">Самосвалы Shacman </a></li>
+                    <li> <a class="catalog_variants_item" href="#">Тягач Shacman </a></li>
+                    <li> <a class="catalog_variants_item" href="#">Автобетоносмесители Shacman </a></li>
+                    <li> <a class="catalog_variants_item" href="#">Шасси Shacman </a></li>
+                </ul>
+                <div class='catalog_filter'>
+                    <div class='catalog_filter_mobile'>
+                        <div class='catalog_filter_title'>Каталог</div>
+                        <span></span>
+                    </div>
+                    <div class='catalog_filter_list'>
+                        <div class="catalog_filter_item">
+                            <label for="cabin">Кабина</label>
+                            <select name="cabin" id="cabin" class="catalog_filter_select">
+                                <option value="">Выбор</option>
+                                <option value="2">F3000</option>
+                                <option value="1">X3000 D'long</option>
+                                <option value="4">X5000</option>
+                            </select>
+                        </div>
+
+                        <div class="catalog_filter_item">
+                            <label for="base">Колесная формула</label>
+                            <select name="base" id="base" class="catalog_filter_select">
+                                <option value="">Выбор</option>
+                                <option value="2">8 x 4</option>
+                                <option value="1">6 x 4</option>
+                                <option value="3">6 x 6</option>
+                            </select>
+                        </div>
+
+                        <div class="catalog_filter_item">
+                            <label for="engine">Двигатель</label>
+                            <select name="engine" id="engine" class="catalog_filter_select">
+                                <option value="">Выбор</option>
+                                <option value="2">Weichai</option>
+                                <option value="1">Cummins</option>
+                            </select>
+                        </div>
+
+                        <div class="catalog_filter_item">
+                            <label for="body">Объем кузова, м3</label>
+                            <select name="body" id="body" class="catalog_filter_select">
+                                <option value="">Выбор</option>
+                                <option value="1">25 м3</option>
+                                <option value="2">35 м3</option>
+                                <option value="3">19.5 м3</option>
+                            </select>
+                        </div>
+
+                        <div class="catalog_filter_item">
+                            <label for="volume">Объем бочки</label>
+                            <select name="volume" id="volume" class="catalog_filter_select">
+                                <option value="">Выбор</option>
+                                <option value="1">12</option>
+                            </select>
                         </div>
                     </div>
-                    <div class='services_col'>
-                        <div class='services_item'>
-                            <div class='services_item_img'>
-                                <img src="imgs/services_2.jpg" alt="">
-                            </div>
-                            <div class='services_item_bottom'>
-                                <div class='services_item_text'>Ремонт</div>
-                                <a href="#" class='btn'>Посмотреть</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='services_col'>
-                        <div class='services_item'>
-                            <div class='services_item_img'>
-                                <img src="imgs/services_3.jpg" alt="">
-                            </div>
-                            <div class='services_item_bottom'>
-                                <div class='services_item_text'>Диагностика</div>
-                                <a href="#" class='btn'>Посмотреть</a>
+
+                </div>
+                <!-- класс catalog_list добавляется только в каталоге, в слайдерах он не нужен -->
+                <div class='catalog_list'>
+                    <div class='catalog_item'>
+                        <div class='block_item'>
+                            <div class='block_item_content'>
+                                <span class='block_item_text'>
+                                    <span>Самосвал X3000 8x4 550 л.c.</span>
+                                    SX331863366
+                                </span>
+                                <img src="imgs/car.jpg" alt="">
+                                <div class='block_item_price'>9 390 000 ₽</div>
                             </div>
                         </div>
+                        <div class='block_item_bottom'>
+                            <a href="#" class='btn btn_grey'>Подробнее</a>
+                            <a href="#" class='btn'>Заказать</a>
+                        </div>
                     </div>
-                    <div class='services_col'>
-                        <div class='services_item'>
-                            <div class='services_item_img'>
-                                <img src="imgs/services_4.jpg" alt="">
+                    <div class='catalog_item'>
+                        <div class='block_item'>
+                            <div class='block_item_content'>
+                                <span class='block_item_text'>
+                                    <span>Самосвал X3000 8x4 550 л.c.</span>
+                                    SX331863366
+                                </span>
+                                <img src="imgs/car.jpg" alt="">
+                                <div class='block_item_price'>9 390 000 ₽</div>
                             </div>
-                            <div class='services_item_bottom'>
-                                <div class='services_item_text'>Мобильная бригада</div>
-                                <a href="#" class='btn'>Посмотреть</a>
+                        </div>
+                        <div class='block_item_bottom'>
+                            <a href="#" class='btn btn_grey'>Подробнее</a>
+                            <a href="#" class='btn'>Заказать</a>
+                        </div>
+                    </div>
+                    <div class='catalog_item'>
+                        <div class='block_item'>
+                            <div class='block_item_content'>
+                                <span class='block_item_text'>
+                                    <span>Самосвал X3000 8x4 550 л.c.</span>
+                                    SX331863366
+                                </span>
+                                <img src="imgs/car.jpg" alt="">
+                                <div class='block_item_price'>9 390 000 ₽</div>
                             </div>
+                        </div>
+                        <div class='block_item_bottom'>
+                            <a href="#" class='btn btn_grey'>Подробнее</a>
+                            <a href="#" class='btn'>Заказать</a>
+                        </div>
+                    </div>
+                    <div class='catalog_item'>
+                        <div class='block_item'>
+                            <div class='block_item_content'>
+                                <span class='block_item_text'>
+                                    <span>Самосвал X3000 8x4 550 л.c.</span>
+                                    SX331863366
+                                </span>
+                                <img src="imgs/car.jpg" alt="">
+                                <div class='block_item_price'>9 390 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class='block_item_bottom'>
+                            <a href="#" class='btn btn_grey'>Подробнее</a>
+                            <a href="#" class='btn'>Заказать</a>
+                        </div>
+                    </div>
+                    <div class='catalog_item'>
+                        <div class='block_item'>
+                            <div class='block_item_content'>
+                                <span class='block_item_text'>
+                                    <span>Самосвал X3000 8x4 550 л.c.</span>
+                                    SX331863366
+                                </span>
+                                <img src="imgs/car.jpg" alt="">
+                                <div class='block_item_price'>9 390 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class='block_item_bottom'>
+                            <a href="#" class='btn btn_grey'>Подробнее</a>
+                            <a href="#" class='btn'>Заказать</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="contacts">
             <div class="container">
                 <div class="contacts_map">
