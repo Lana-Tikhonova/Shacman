@@ -2351,6 +2351,10 @@ span.breadcrumb_link {
 		.services_col {
 			width: 33.33%;
 		}
+
+		.services_item_img {
+			padding-bottom: 38.8%
+		}
 	}
 }
 
@@ -3042,6 +3046,20 @@ span.breadcrumb_link {
 				th {
 					height: auto;
 					font-size: 16px;
+				}
+			}
+		}
+	}
+
+	.tabs_content_item {
+		&#tabsShop2 .tabs_content_table {
+			table {
+				margin-bottom: 0;
+
+				&:last-child {
+					thead {
+						display: none;
+					}
 				}
 			}
 		}

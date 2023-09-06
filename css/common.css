@@ -1948,6 +1948,9 @@ span.breadcrumb_link {
 .services_list_col-3 .services_col {
   width: 33.33%;
 }
+.services_list_col-3 .services_item_img {
+  padding-bottom: 38.8%;
+}
 
 @media screen and (max-width: 1100px) {
   .services_list_col-3 .services_col {
@@ -2556,6 +2559,12 @@ span.breadcrumb_link {
   .tabs_content_table table thead th {
     height: auto;
     font-size: 16px;
+  }
+  .tabs_content_item#tabsShop2 .tabs_content_table table {
+    margin-bottom: 0;
+  }
+  .tabs_content_item#tabsShop2 .tabs_content_table table:last-child thead {
+    display: none;
   }
 }
 @media screen and (max-width: 576px) {
