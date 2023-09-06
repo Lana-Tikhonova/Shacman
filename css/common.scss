@@ -493,7 +493,33 @@ span.breadcrumb_link {
 
 .header {
 	padding: 40px 0 44px;
+	position: relative;
+	width: 100%;
+}
+
+@media screen and (min-width:1101px) {
+	.header {
+		position: fixed;
+		top: 0;
+		z-index: 70;
+		background: #fff;
+		border-bottom: 1px solid transparent;
+
+		&.fix {
+			border-bottom-color: rgb(170 170 170 / 49%);
+			padding: 20px 0 20px;
+		}
+	}
+}
+
+.home_block {
 	margin-bottom: 20px;
+}
+
+@media screen and (max-width:1100px) {
+	.home_block {
+		padding-top: 0 !important;
+	}
 }
 
 .logo {
@@ -590,9 +616,6 @@ span.breadcrumb_link {
 		backdrop-filter: blur(10px);
 		padding-top: 33px;
 		padding-bottom: 37px;
-		margin-bottom: 0;
-		position: relative;
-		z-index: 1;
 	}
 
 	.menu {
@@ -2919,6 +2942,106 @@ span.breadcrumb_link {
 			font-size: 14px;
 			padding: 7px 2px 7px 9px;
 			border-top-left-radius: 5px;
+		}
+	}
+}
+
+.tabs_content_table {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -50px;
+	margin-right: -50px;
+	align-items: flex-start;
+
+	table {
+		width: 50% !important;
+		padding-left: 50px;
+		padding-right: 50px;
+		margin-bottom: 100px;
+
+		thead {
+			th {
+				padding-bottom: 25px;
+				font-size: 20px;
+				color: $color_yellow;
+				font-weight: 600;
+				text-align: left;
+				height: 50px;
+			}
+		}
+	}
+
+	tbody {
+		td {
+			padding-bottom: 15px;
+			padding-top: 15px;
+			border-bottom: 1px solid #EDEDED;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 115%;
+
+			&:first-child {
+				font-weight: 600;
+				padding-right: 15px;
+			}
+
+			&:last-child {
+				text-align: right;
+			}
+		}
+	}
+}
+
+@media screen and (max-width:1700px) {
+	.tabs_content_table {
+		margin-left: -20px;
+		margin-right: -20px;
+
+		table {
+			margin-bottom: 80px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+}
+
+@media screen and (max-width:992px) {
+	.tabs_content_table {
+		flex-direction: column;
+	}
+
+	.tabs_content_table {
+		margin-left: 0;
+		margin-right: 0;
+
+		table {
+			width: 100% !important;
+			margin-bottom: 60px;
+			padding-left: 0;
+			padding-right: 0;
+
+			thead {
+				th {
+					height: auto;
+					font-size: 16px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width:576px) {
+	.tabs_content_table {
+
+		table {
+			margin-bottom: 40px;
+
+			thead {
+				th {
+					font-size: 16px;
+					padding-bottom: 10px;
+				}
+			}
 		}
 	}
 }
