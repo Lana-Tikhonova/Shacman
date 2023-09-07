@@ -151,6 +151,10 @@ ul {
 	align-items: center;
 }
 
+.justify-content-center {
+	justify-content: center;
+}
+
 .justify-content-between {
 	justify-content: space-between;
 }
@@ -574,6 +578,10 @@ span.breadcrumb_link {
 			margin-bottom: 12px;
 		}
 	}
+}
+
+.header_link_mobile {
+	display: none;
 }
 
 /*----home-----*/
@@ -1575,7 +1583,7 @@ span.breadcrumb_link {
 	width: 40px;
 	height: 40px;
 	cursor: pointer;
-	margin-left: auto;
+
 
 	span {
 		width: 20px;
@@ -1610,10 +1618,12 @@ span.breadcrumb_link {
 
 .mobile_menu_btn {
 	display: none;
+	margin-left: 30px;
 }
 
 .mobile_menu_close {
 	position: absolute;
+	margin-left: auto;
 	right: 32px;
 	top: 32px;
 
@@ -1728,10 +1738,6 @@ span.breadcrumb_link {
 }
 
 @media screen and (max-width:1200px) {
-	.page_home .header_link a:not(:last-child) {
-		margin-right: 20px;
-	}
-
 	.menu a {
 		padding-left: 14px;
 		padding-right: 14px;
@@ -1739,6 +1745,10 @@ span.breadcrumb_link {
 
 	.page_home .header_link {
 		font-size: 15px;
+
+		a:not(:last-child) {
+			margin-right: 20px;
+		}
 	}
 
 	.page_home h1 {
@@ -1841,6 +1851,19 @@ span.breadcrumb_link {
 		.header_link {
 			display: none;
 		}
+	}
+
+	.page_home .header_link_mobile {
+		color: #fff;
+		font-weight: 600;
+	}
+
+	.header_link_mobile {
+		display: block;
+		text-decoration-line: underline;
+		line-height: 115%;
+		margin-left: auto;
+		font-size: 15px;
 	}
 
 	.home_info {
@@ -2217,6 +2240,10 @@ span.breadcrumb_link {
 
 
 @media screen and (max-width:440px) {
+	.mobile_menu_btn {
+		margin-left: 15px;
+	}
+
 	body:not(.page_home) {
 		.mobile_menu_close {
 			top: 23px;
@@ -2224,16 +2251,13 @@ span.breadcrumb_link {
 	}
 
 	.fix_btns_item {
-		width: 40px;
-		height: 40px;
-
 		img {
-			width: 20px;
+			width: 25px;
 		}
 
 		&:first-child {
 			img {
-				width: 15px;
+				width: 20px;
 			}
 		}
 	}
@@ -2338,6 +2362,12 @@ span.breadcrumb_link {
 		font-size: 16px;
 	}
 
+}
+
+@media screen and (max-width:350px) {
+	.header_link_mobile {
+		font-size: 14px;
+	}
 }
 
 .services_list {
@@ -2732,6 +2762,12 @@ span.breadcrumb_link {
 		width: 25px;
 		height: 25px;
 	}
+}
+
+.tabs_content_item_btn {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
 }
 
 .tabs_content {
