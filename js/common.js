@@ -21,7 +21,6 @@ $(document).ready(function () {
     function hederFix(e) {
         if ($(window).width() > 1101) {
             let hederHeight = $('.header').outerHeight();
-            console.log(hederHeight);
             $('.home_block').css('paddingTop', `${hederHeight}px`);
         }
     }
@@ -160,16 +159,29 @@ $(document).ready(function () {
     forms.forEach(form => {
         const userName = form.querySelector('.form_input[name="name"]');
         const userPhone = form.querySelector('.form_input[name="tel"]');
+        const textArea = form.querySelector('.form_textarea');
         userName.addEventListener('input', removeErr);
-        userPhone.addEventListener('input', removeErr);
+        if (userPhone) {
+            userPhone.addEventListener('input', removeErr);
+        }
+        if (textArea) {
+            textArea.addEventListener('input', removeErr);
+        }
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             if (userName.value.trim().length < 1) {
                 userName.closest('.form_input_group').classList.add('error');
             }
-            if (userPhone.value.replace(/\D/g, '').length < 11) {
-                userPhone.closest('.form_input_group').classList.add('error');
+            if (textArea) {
+                if (textArea.value.trim().length < 1) {
+                    textArea.closest('.form_input_group').classList.add('error');
+                }
+            }
+            if (userPhone) {
+                if (userPhone.value.replace(/\D/g, '').length < 11) {
+                    userPhone.closest('.form_input_group').classList.add('error');
+                }
             }
             const formErrors = form.querySelector('.error');
             if (formErrors) return;
