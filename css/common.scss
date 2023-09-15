@@ -2650,7 +2650,7 @@ span.breadcrumb_link {
 	margin-bottom: 30px;
 	width: 100%;
 	overflow: hidden;
-	border-radius: 20px;
+	border-radius: 1.05vw;
 }
 
 .gallery_big_img {
@@ -2659,7 +2659,7 @@ span.breadcrumb_link {
 	overflow: hidden;
 	height: 0;
 	padding-bottom: 63%;
-	border-radius: 20px;
+	border-radius: 1.05vw;
 
 	img {
 		display: block;
@@ -2679,7 +2679,7 @@ span.breadcrumb_link {
 .gallery_small {
 	width: 100%;
 	overflow: hidden;
-	border-radius: 15px;
+	border-radius: 0.785vw;
 
 	.swiper-slide {
 		filter: grayscale(1);
@@ -2697,7 +2697,7 @@ span.breadcrumb_link {
 	overflow: hidden;
 	height: 0;
 	padding-bottom: 56%;
-	border-radius: 15px;
+	border-radius: 0.785vw;
 
 	img {
 		display: block;
