@@ -347,12 +347,25 @@ $(document).ready(function () {
         }
         $input.attr('value', val);
     });
+
     $(document).on('click', '.autopart_select', function () {
         $(this).toggleClass('open')
     });
     $(document).on('click', function (e) {
         if (!$(e.target).closest(".autopart_select").length) {
             $('.autopart_select').removeClass('open');
+        }
+    });
+
+    $(document).on('click', '.autopart_filter_close', function () {
+        $('.autopart_block_filter').removeClass('open')
+    });
+    $(document).on('click', '.autopart_filter_btn', function () {
+        $('.autopart_block_filter').addClass('open')
+    });
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest(".autopart_filter,.autopart_filter_btn").length) {
+            $('.autopart_block_filter').removeClass('open');
         }
     });
 

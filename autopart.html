@@ -100,6 +100,7 @@
                 <div class='autopart_top'>
                     <h1>Категории</h1>
                     <div class='autopart_settings'>
+                        <div class='autopart_filter_btn'>Фильтр</div>
                         <div class='autopart_search'>
                             <input type="text" autocomplete="off" class="autopart_search_input" name="search"
                                 placeholder="Поиск">
@@ -118,32 +119,43 @@
                 </div>
                 <div class='autopart_block'>
                     <div class='autopart_block_filter'>
-                        <div class='range_price'>
-                            <div class="range_price_slider"></div>
-                            <div class="range_price_block">
-                                <div class="range_price_block_item left">
-                                    <span>от</span>
-                                    <span class="filter-price price_from" data-value="100" data-min="100"></span>
-                                </div>
-                                <div class="range_price_block_item right">
-                                    <span>до</span>
-                                    <span class="filter-price price_to" data-value="20000" data-max="20000"></span>
-                                </div>
-                                <input type="hidden" name="price" value="" class="input_range">
+                        <div class='autopart_filter'>
+                            <div class='autopart_filter_close'>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M13.8854 12L19.6094 6.27608C20.1307 5.75475 20.1307 4.91208 19.6094 4.39075C19.0881 3.86942 18.2454 3.86942 17.7241 4.39075L12.0001 10.1147L6.27619 4.39075C5.75486 3.86942 4.9122 3.86942 4.39087 4.39075C3.86955 4.91208 3.86955 5.75475 4.39087 6.27608L10.1148 12L4.39087 17.724C3.86955 18.2453 3.86955 19.088 4.39087 19.6093C4.65087 19.8693 4.9922 20 5.33353 20C5.67486 20 6.01619 19.8693 6.27619 19.6093L12.0001 13.8854L17.7241 19.6093C17.9841 19.8693 18.3254 20 18.6667 20C19.0081 20 19.3494 19.8693 19.6094 19.6093C20.1307 19.088 20.1307 18.2453 19.6094 17.724L13.8854 12Z">
+                                    </path>
+                                </svg>
                             </div>
+                            <div class='range_price'>
+                                <div class="range_price_slider"></div>
+                                <div class="range_price_block">
+                                    <div class="range_price_block_item left">
+                                        <span>от</span>
+                                        <span class="filter-price price_from" data-value="100" data-min="100"></span>
+                                    </div>
+                                    <div class="range_price_block_item right">
+                                        <span>до</span>
+                                        <span class="filter-price price_to" data-value="20000" data-max="20000"></span>
+                                    </div>
+                                    <input type="hidden" name="price" value="" class="input_range">
+                                </div>
+                            </div>
+                            <ul class='autopart_list'>
+                                <li><a href="#">Карданные валы</a></li>
+                                <li><a href="#">Мосты</a></li>
+                                <li><a href="#">Топливная система</a></li>
+                                <li><a href="#">Выхлопная система
+                                        и турбокомпрессор</a></li>
+                                <li><a href="#" class='active'>Электрооборудование
+                                        и освещение</a></li>
+                            </ul>
                         </div>
-                        <ul class='autopart_list'>
-                            <li><a href="#">Карданные валы</a></li>
-                            <li><a href="#">Мосты</a></li>
-                            <li><a href="#">Топливная система</a></li>
-                            <li><a href="#">Выхлопная система
-                                    и турбокомпрессор</a></li>
-                            <li><a href="#" class='active'>Электрооборудование
-                                    и освещение</a></li>
-                        </ul>
                     </div>
                     <div class='autopart_block_products'>
                         <div class='autopart_products_list'>
+
                             <div class='autopart_products_col'>
                                 <div class='autopart_products_item'>
                                     <div class='autopart_product_title'>
@@ -151,10 +163,12 @@
                                         81.74821.0095
                                     </div>
                                     <div class='autopart_product_top'>
-                                        <a href="#" class='autopart_product_img'><img src="imgs/car.jpg" alt=""></a>
-                                        <div class="quick_view" data-open-modal="open_modal" data-link="">Быстрый
-                                            просмотр</div>
-                                        <div class='autopart_product_price'>290 ₽</div>
+                                        <div class='autopart_product_info'>
+                                            <a href="#" class='autopart_product_img'><img src="imgs/car.jpg" alt=""></a>
+                                            <div class="quick_view" data-open-modal="open_modal" data-link="">Быстрый
+                                                просмотр</div>
+                                            <div class='autopart_product_price'>290 ₽</div>
+                                        </div>
                                     </div>
                                     <div class='autopart_product_bottom'>
                                         <div class='autopart_product_availability'>
@@ -189,6 +203,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class='autopart_products_col'>
                                 <div class='autopart_products_item'>
                                     <div class='autopart_product_title'>
@@ -196,10 +211,12 @@
                                         81.74821.0095
                                     </div>
                                     <div class='autopart_product_top'>
-                                        <a href="#" class='autopart_product_img'><img src="imgs/car.jpg" alt=""></a>
-                                        <div class="quick_view" data-open-modal="open_modal" data-link="">Быстрый
-                                            просмотр</div>
-                                        <div class='autopart_product_price'>290 ₽</div>
+                                        <div class='autopart_product_info'>
+                                            <a href="#" class='autopart_product_img'><img src="imgs/car.jpg" alt=""></a>
+                                            <div class="quick_view" data-open-modal="open_modal" data-link="">Быстрый
+                                                просмотр</div>
+                                            <div class='autopart_product_price'>290 ₽</div>
+                                        </div>
                                     </div>
                                     <div class='autopart_product_bottom'>
                                         <div class='autopart_product_availability'>
@@ -234,52 +251,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='autopart_products_col'>
-                                <div class='autopart_products_item'>
-                                    <div class='autopart_product_title'>
-                                        <span class='name'>Амортизатор капота SHACMAN F2000</span>
-                                        81.74821.0095
-                                    </div>
-                                    <div class='autopart_product_top'>
-                                        <a href="#" class='autopart_product_img'><img src="imgs/car.jpg" alt=""></a>
-                                        <div class="quick_view" data-open-modal="open_modal" data-link="">Быстрый
-                                            просмотр</div>
-                                        <div class='autopart_product_price'>290 ₽</div>
-                                    </div>
-                                    <div class='autopart_product_bottom'>
-                                        <div class='autopart_product_availability'>
-                                            <!-- <span class='exist'>Есть в наличии</span> -->
-                                            <!-- если нет в наличии то спан нижний -->
-                                            <span class='not_exist'>Нет в наличии</span>
-                                        </div>
-                                        <div class="quanity">
-                                            <div class="quanity-block">
-                                                <button type="button" class="product-count -one" data-count="-1">
-                                                    <svg width="6" height="2" viewBox="0 0 6 2" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M0.799805 1.664V0H5.1998V1.664H0.799805Z"
-                                                            fill="#444444" />
-                                                    </svg>
-                                                </button>
-                                                <span class="quanity-block__input">
-                                                    <input type="text" value="1" data-product="" class="quanity_input">
-                                                </span>
-                                                <button type="button" class="product-count -one" data-count="1">
-                                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M3.14352 7.5999V0.399902H4.85552V7.5999H3.14352ZM0.311523 4.7999V3.1999H7.68752V4.7999H0.311523Z"
-                                                            fill="#444444" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <button class='btn quanity_btn'>В корзину</button>
-                                        </div>
-                                        <a href="#" class='autopart_product_link'>Подробнее</a>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <span class="button">
+                                    <svg width="24" height="6" viewBox="0 0 24 6" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.5 3L5.5 0.113249V5.88675L0.5 3ZM23.5 3.5H5V2.5H23.5V3.5Z" />
+                                    </svg>
+                                </span>
+                            </li>
+
+                            <li class="current"><span class="item">1</span></li>
+                            <li><a class="item" href="">2</a></li>
+                            <li><a class="item" href="">...</a></li>
+                            <li><a class="item" href="">28</a></li>
+
+                            <li>
+                                <a class="button" href="">
+                                    <svg width="24" height="6" viewBox="0 0 24 6" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.5 3L18.5 0.113249V5.88675L23.5 3ZM0.5 3.5H19V2.5H0.5V3.5Z" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
