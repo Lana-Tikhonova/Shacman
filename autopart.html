@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description"
+        content="Сделайте покупку техники Shacman доступной вместе с официальным дилером Большегруз. Качественные самосвалы, тягачи в наличии." />
+    <meta name="keywords" content="" />
+    <title>Услуги</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- шрифты -->
+    <link rel="preload" href="fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="vendors/fancybox/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
+    <link rel="stylesheet" href="css/common.css?9">
+</head>
+
+<body class=''>
+    <div class='fix_btns'>
+        <a href="#" class='fix_btns_item'>
+            <span class='fix_btns_item_anim fix_btns_item_anim_1'></span>
+            <span class='fix_btns_item_anim fix_btns_item_anim_2'></span>
+            <span class='fix_btns_item_bg'></span>
+            <img src="imgs/phone.svg" alt="">
+        </a>
+        <a href="#" class='fix_btns_item'>
+            <span class='fix_btns_item_anim fix_btns_item_anim_1'></span>
+            <span class='fix_btns_item_anim fix_btns_item_anim_2'></span>
+            <span class='fix_btns_item_bg'></span>
+            <img src="imgs/whatsap.svg" alt="">
+        </a>
+    </div>
+    <div class='home_block'>
+        <header class="header">
+            <div class="container">
+                <div class='header_row'>
+                    <a href="/" class='logo'><img src="imgs/logo.png" alt=""></a>
+                    <nav class='menu_wrapper'>
+                        <ul class='menu'>
+                            <li><a href="/" class='active'>Главная</a></li>
+                            <li><a href="">Каталог</a></li>
+                            <li><a href="">Статьи</a></li>
+                            <li><a href="">О нас</a></li>
+                            <li><a href="">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <div class='header_link'>
+                        <a href="#">info@bg98.ru</a>
+                        <a href="tel:+78124545507">+7 (812) 454-55-07</a>
+                        <a href="tel:+79219574845">+7 (921) 957-48-45</a>
+                    </div>
+                    <!-- один телефон для мобилки -->
+                    <a class='header_link_mobile' href="tel:+78124545507">+7 (812) 454-55-07</a>
+                    <div class='mobile_menu_btn'><span></span></div>
+                </div>
+            </div>
+        </header>
+        <div class='mobile_menu'>
+            <div class='mobile_menu_block'>
+                <div class='mobile_menu_close'><span></span></div>
+                <nav class='menu_wrapper'>
+                    <ul class='menu'>
+                        <li><a href="/" class='active'>Главная</a></li>
+                        <li><a href="">Каталог</a></li>
+                        <li><a href="">Статьи</a></li>
+                        <li><a href="">О нас</a></li>
+                        <li><a href="">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class='header_link'>
+                    <a href="#">info@bg98.ru</a>
+                    <a href="tel:+78124545507">+7 (812) 454-55-07</a>
+                    <a href="tel:+79219574845">+7 (921) 957-48-45</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class='container'>
+            <ul class='breadcrumb'>
+                <li class='breadcrumb_item'>
+                    <a href="/" class='breadcrumb_link'>Главная</a>
+                    <span class='breadcrumb_pipe'>→</span>
+                </li>
+                <li class='breadcrumb_item'>
+                    <span class='breadcrumb_link'>Запчасти</span>
+                </li>
+            </ul>
+        </div>
+        <section class='section'>
+            <div class='container'>
+                <div class='autopart_top'>
+                    <h1>Категории</h1>
+                    <div class='autopart_settings'>
+                        <div class='autopart_search'>
+                            <input type="text" autocomplete="off" class="autopart_search_input" name="search"
+                                placeholder="Поиск">
+                            <button class='autopart_search_btn'><img src="imgs/search.svg" alt=""></button>
+                        </div>
+                        <div class='autopart_select'>
+                            <span class='autopart_select_name'>Сначала дешевые</span>
+                            <ul class='autopart_select_dropdown'>
+                                <li><a href="#" class='active'>Сначала дешевые</a></li>
+                                <li><a href="#">Сначала дорогие</a></li>
+                                <li><a href="#">А-Я</a></li>
+                                <li><a href="#">Я-А</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class='autopart_block'>
+                    <div class='autopart_block_filter'>
+                        <div class='range_price'>
+                            <div class="range_price_slider"></div>
+                            <div class="range_price_block">
+                                <div class="range_price_block_item left">
+                                    <span>от</span>
+                                    <span class="filter-price price_from" data-value="100" data-min="100"></span>
+                                </div>
+                                <div class="range_price_block_item right">
+                                    <span>до</span>
+                                    <span class="filter-price price_to" data-value="20000" data-max="20000"></span>
+                                </div>
+                                <input type="hidden" name="price" value="" class="input_range">
+                            </div>
+                        </div>
+                        <ul class='autopart_list'>
+                            <li><a href="#">Карданные валы</a></li>
+                            <li><a href="#">Мосты</a></li>
+                            <li><a href="#">Топливная система</a></li>
+                            <li><a href="#">Выхлопная система
+                                    и турбокомпрессор</a></li>
+                            <li><a href="#" class='active'>Электрооборудование
+                                    и освещение</a></li>
+                        </ul>
+                    </div>
+                    <div class='autopart_block_products'>
+                        <div class='autopart_products_list'>
+                            <div class='autopart_products_col'>
+                                <div class='autopart_products_item'>
+                                    <div class='autopart_product_title'>
+                                        <span class='name'>Амортизатор капота SHACMAN F2000</span>
+                                        81.74821.0095
+                                    </div>
+                                    <div class='autopart_product_top'>
+                                        <a href="#" class='autopart_product_img'><img src="imgs/car.jpg" alt=""></a>
+                                        <div class="quick_view" data-open-modal="open_modal" data-link="">Быстрый
+                                            просмотр</div>
+                                        <div class='autopart_product_price'>290 ₽</div>
+                                    </div>
+                                    <div class='autopart_product_bottom'>
+                                        <div class='autopart_product_availability'>
+                                            <span class='exist'>Есть в наличии</span>
+                                            <!-- если нет в наличии то спан нижний -->
+                                            <!-- <span class='not_exist'>Нет в наличии</span> -->
+                                        </div>
+                                        <div class="quanity">
+                                            <div class="quanity-block">
+                                                <button type="button" class="product-count -one" data-count="-1">
+                                                    <svg width="6" height="2" viewBox="0 0 6 2" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0.799805 1.664V0H5.1998V1.664H0.799805Z"
+                                                            fill="#444444" />
+                                                    </svg>
+                                                </button>
+                                                <span class="quanity-block__input">
+                                                    <input type="text" value="1" data-product="" class="quanity_input">
+                                                </span>
+                                                <button type="button" class="product-count -one" data-count="1">
+                                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M3.14352 7.5999V0.399902H4.85552V7.5999H3.14352ZM0.311523 4.7999V3.1999H7.68752V4.7999H0.311523Z"
+                                                            fill="#444444" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <button class='btn quanity_btn'>В корзину</button>
+                                        </div>
+                                        <a href="#" class='autopart_product_link'>Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='autopart_products_col'>
+                                <div class='autopart_products_item'>
+                                    <div class='autopart_product_title'>
+                                        <span class='name'>Амортизатор капота SHACMAN F2000</span>
+                                        81.74821.0095
+                                    </div>
+                                    <div class='autopart_product_top'>
+                                        <a href="#" class='autopart_product_img'><img src="imgs/car.jpg" alt=""></a>
+                                        <div class="quick_view" data-open-modal="open_modal" data-link="">Быстрый
+                                            просмотр</div>
+                                        <div class='autopart_product_price'>290 ₽</div>
+                                    </div>
+                                    <div class='autopart_product_bottom'>
+                                        <div class='autopart_product_availability'>
+                                            <span class='exist'>Есть в наличии</span>
+                                            <!-- если нет в наличии то спан нижний -->
+                                            <!-- <span class='not_exist'>Нет в наличии</span> -->
+                                        </div>
+                                        <div class="quanity">
+                                            <div class="quanity-block">
+                                                <button type="button" class="product-count -one" data-count="-1">
+                                                    <svg width="6" height="2" viewBox="0 0 6 2" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0.799805 1.664V0H5.1998V1.664H0.799805Z"
+                                                            fill="#444444" />
+                                                    </svg>
+                                                </button>
+                                                <span class="quanity-block__input">
+                                                    <input type="text" value="1" data-product="" class="quanity_input">
+                                                </span>
+                                                <button type="button" class="product-count -one" data-count="1">
+                                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M3.14352 7.5999V0.399902H4.85552V7.5999H3.14352ZM0.311523 4.7999V3.1999H7.68752V4.7999H0.311523Z"
+                                                            fill="#444444" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <button class='btn quanity_btn'>В корзину</button>
+                                        </div>
+                                        <a href="#" class='autopart_product_link'>Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='autopart_products_col'>
+                                <div class='autopart_products_item'>
+                                    <div class='autopart_product_title'>
+                                        <span class='name'>Амортизатор капота SHACMAN F2000</span>
+                                        81.74821.0095
+                                    </div>
+                                    <div class='autopart_product_top'>
+                                        <a href="#" class='autopart_product_img'><img src="imgs/car.jpg" alt=""></a>
+                                        <div class="quick_view" data-open-modal="open_modal" data-link="">Быстрый
+                                            просмотр</div>
+                                        <div class='autopart_product_price'>290 ₽</div>
+                                    </div>
+                                    <div class='autopart_product_bottom'>
+                                        <div class='autopart_product_availability'>
+                                            <!-- <span class='exist'>Есть в наличии</span> -->
+                                            <!-- если нет в наличии то спан нижний -->
+                                            <span class='not_exist'>Нет в наличии</span>
+                                        </div>
+                                        <div class="quanity">
+                                            <div class="quanity-block">
+                                                <button type="button" class="product-count -one" data-count="-1">
+                                                    <svg width="6" height="2" viewBox="0 0 6 2" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0.799805 1.664V0H5.1998V1.664H0.799805Z"
+                                                            fill="#444444" />
+                                                    </svg>
+                                                </button>
+                                                <span class="quanity-block__input">
+                                                    <input type="text" value="1" data-product="" class="quanity_input">
+                                                </span>
+                                                <button type="button" class="product-count -one" data-count="1">
+                                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M3.14352 7.5999V0.399902H4.85552V7.5999H3.14352ZM0.311523 4.7999V3.1999H7.68752V4.7999H0.311523Z"
+                                                            fill="#444444" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <button class='btn quanity_btn'>В корзину</button>
+                                        </div>
+                                        <a href="#" class='autopart_product_link'>Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contacts">
+            <div class="container">
+                <div class="contacts_map">
+                    <iframe
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A63ff4e976cc02f33b58328005259ffa0a614735960f5019851b607379b2b9c6a&amp;source=constructor"></iframe>
+                </div>
+                <div class="contacts_info">
+                    <div class="contacts_text">Санкт-Петербург<br>
+                        Московское шоссе дом 13-Д<br>
+                        Рабочее время:<br>
+                        Пн…Пт — 09:00…18:00<br>
+                        <br>
+                        О встрече на просмотр техники во вне рабочее время договаривайтесь
+                        по телефону заранее.
+                    </div>
+                    <form method="post" class="contacts_form validate_form">
+                        <label class='form_input_group'>
+                            <span class='form_input_caption'>Имя</span>
+                            <span class='form_input_wrapper'>
+                                <input type="text" name="name" placeholder="Ваше имя" class='form_input'>
+                                <span class='text_error'>Заполните поле</span>
+                            </span>
+                        </label>
+                        <label class='form_input_group'>
+                            <span class='form_input_caption'>Номер телефона</span>
+                            <span class='form_input_wrapper'>
+                                <input type="tel" name="tel" placeholder="+7 (921) 957-48-45" class='form_input'>
+                                <span class='text_error'>Заполните поле</span>
+                            </span>
+                        </label>
+                        <button class='btn btn_grey' type="submit">Заказать</button>
+                        <div class="form_agreement">Нажимая кнопку «Заказать» вы даете свое согласие на обработку
+                            персональных данных</div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class='footer'>
+        <div class='container'>
+            <div class='footer_block'>
+                <div>
+                    <span class='footer_block_title'>Отдел продаж техники:</span>
+                    <a href="tel:+78124545507">+7 (812) 454-55-07</a>
+                    <a href="tel:+79219574845">+7 (921) 957-48-45</a>
+                </div>
+                <div class='footer_block_right'>
+                    <span class='footer_block_title'>Отдел запчастей:</span>
+                    <a href="tel:+78123090997">+7 812 309-09-97</a>
+                    <span class='footer_block_title'>WhatsApp:</span>
+                    <a href="tel:+79219450888">+7 921 945-0-888</a>
+                </div>
+            </div>
+            <div class='footer_text'>Продажа китайских самосвалов, спецтехники, строительной техники, тягачей, бетонных
+                заводов, др. об-я производства Китая.</div>
+            <div class='footer_text'>2012-2023©</div>
+        </div>
+    </footer>
+
+    <script src="vendors/jquery/jquery-3.5.1.min.js"></script>
+    <script src="vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="vendors/fancybox/jquery.fancybox.min.js"></script>
+    <script src="vendors/imask/imask.js"></script>
+    <script src="vendors/masonry/masonry.pkgd.min.js"></script>
+    <script src="vendors/nouislider/nouislider.min.js"></script>
+    <script src="js/common.js?8"></script>
+</body>
+
+</html>

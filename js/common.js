@@ -335,3 +335,76 @@ window.onload = function () {
         }
     }
 };
+$(document).ready(function () {
+    $(document).on('click', '.product-count', function () {
+        let $btn = $(this),
+            count = $btn.data('count'),
+            $input = $btn.closest('.quanity').find('.quanity_input'),
+            val = parseInt($input.val());
+        val += count;
+        if (val <= 0) {
+            val = $btn.hasClass('-one') ? 1 : 0;
+        }
+        $input.attr('value', val);
+    });
+    $(document).on('click', '.autopart_select', function () {
+        $(this).toggleClass('open')
+    });
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest(".autopart_select").length) {
+            $('.autopart_select').removeClass('open');
+        }
+    });
+
+    //Диапазон цен
+    const slider = document.querySelectorAll('.range_price_slider');
+
+    if (slider) {
+        $need_use_js_form_filter_change = 0;
+        for (let index = 0; index < slider.length; index++) {
+            const element = slider[index];
+            let rangeSlider = $('.range_price_slider').eq(index).closest('.range_price').find('.range_price_block')
+            let inputFrom = rangeSlider.find('.price_from'),
+                inputTo = rangeSlider.find('.price_to'),
+                inputHidden = rangeSlider.find('.input_range'),
+                inputMin = inputFrom.data('min'),
+                inputMax = inputTo.data('max');
+            inputFrom.addClass('js_from_' + index);
+            inputTo.addClass('js_to_' + index);
+
+            noUiSlider.create(element, {
+                start: [inputFrom.data('value'), inputTo.data('value')],
+                connect: true,
+                range: {
+                    'min': inputMin,
+                    'max': inputMax
+                },
+                step: 1,
+                format: {
+                    from: function (value) {
+                        return parseInt(value);
+                    },
+                    to: function (value) {
+                        return parseInt(value);
+                    }
+                }
+            });
+
+            element.noUiSlider.on('update', function (values, handle) {
+                let $this_val_min = values[0]
+                let $this_val_max = values[1]
+
+                inputFrom.text($this_val_min);
+                inputTo.text($this_val_max);
+                inputHidden.val($this_val_min + '-' + $this_val_max);
+            });
+
+            $(document).on('change', '.js_from_' + index + ', .js_to_' + index, function () {
+                let $from = $('.js_from_' + index).text();
+                let $to = $('.js_to_' + index).text();
+                element.noUiSlider.set([$from, $to]);
+            })
+        }
+        $need_use_js_form_filter_change = 1;
+    }
+})
