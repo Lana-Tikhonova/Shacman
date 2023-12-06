@@ -52,9 +52,10 @@ const calculator = () => {
 
 $(document).ready(function () {
     //слайдер на главной
+
     var swiperWallet = new Swiper(".slider_block .swiper", {
         slidesPerView: "auto",
-        spaceBetween: 20,
+        spaceBetween: 16,
         watchSlidesProgress: true,
         mousewheelControl: true,
         watchOverflow: true,
@@ -67,9 +68,18 @@ $(document).ready(function () {
             el: ".swiper-scrollbar",
             hide: false,
         },
-        breakpoints: {
-            769: {
-                spaceBetween: 45,
+        on: {
+            progress: function (swiper) {
+                if (swiper.isEnd) {
+                    $('.slider_block .swiper').addClass('slider_end')
+                } else {
+                    $('.slider_block .swiper').removeClass('slider_end')
+                }
+                if (swiper.isBeginning) {
+                    $('.slider_block .swiper').removeClass('slider_move')
+                } else {
+                    $('.slider_block .swiper').addClass('slider_move')
+                }
             },
         },
     });
