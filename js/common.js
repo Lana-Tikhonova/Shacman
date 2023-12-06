@@ -1,3 +1,55 @@
+const calculator = () => {
+    let cost = document.getElementById("cost"),
+        prepaid = document.getElementById("prepaid"),
+        calcInput = document.getElementsByClassName("inputfield"),
+        term = document.getElementById("term"),
+        payment = document.getElementById("payment"),
+        paymentResult,
+        monthPayment = document.getElementById('month-payment'),
+        stavka = 0.006;
+
+    cost.value = cost.value ? cost.value : 1000000;
+    prepaid.value = prepaid.value ? prepaid.value : 25;
+    term.value = term.value ? term.value : 12;
+
+    payment.textContent = Math.floor(cost.value / 100 * prepaid.value);
+    payment.textContent = payment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+
+    paymentResult = payment.textContent.replace(/\s+/g, '');
+
+    monthPayment.textContent = Math.floor(
+        ((cost.value - paymentResult) / term.value) * 1.2
+    );
+    monthPayment.textContent = monthPayment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+
+
+    for (let i = 0; i < calcInput.length; i++) {
+        calcInput[i].onchange = function () {
+
+            if (cost.value > 15000000) cost.value = 15000000;
+            if (cost.value < 300000) cost.value = 300000;
+            if (prepaid.value < 5) prepaid.value = 5;
+            if (prepaid.value > 50) prepaid.value = 50;
+            if (term.value < 12) term.value = 12;
+            if (term.value > 50) term.value = 50;
+
+            payment.textContent = Math.floor(cost.value / 100 * prepaid.value);
+            payment.textContent = payment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+
+            paymentResult = payment.textContent.replace(/\s+/g, '');
+            paymentResult = Number(paymentResult);
+
+            monthPayment.textContent = Math.floor(
+                ((cost.value - paymentResult) / term.value) * 1.2
+            );
+            monthPayment.textContent = monthPayment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+
+            document.getElementById("payment-id").value = payment.textContent
+            document.getElementById('month-payment-id').value = monthPayment.textContent
+        }
+    }
+}
+
 $(document).ready(function () {
     //слайдер на главной
     var swiperWallet = new Swiper(".slider_block .swiper", {
@@ -7,6 +59,10 @@ $(document).ready(function () {
         mousewheelControl: true,
         watchOverflow: true,
         watchSlidesVisibility: true,
+        navigation: {
+            nextEl: ".arrow-right",
+            prevEl: ".arrow-left"
+        },
         scrollbar: {
             el: ".swiper-scrollbar",
             hide: false,
@@ -143,52 +199,78 @@ $(document).ready(function () {
         fixMenu();
     });
 
-    // маскадля телефона
-    const phoneInputs = document.querySelectorAll('.form_input[name="tel"]');
-    phoneInputs.forEach(input => {
-        IMask(input, {
-            mask: '+{7}(000)000-00-00'
+    const form = () => {
+        // маскадля телефона
+        const phoneInputs = document.querySelectorAll('.form_input[name="tel"]');
+        phoneInputs.forEach(input => {
+            IMask(input, {
+                mask: '+{7}(000)000-00-00'
+            })
         })
-    })
+        // валидация
+        const forms = document.querySelectorAll('.validate_form');
+        forms.forEach(form => {
+            const userName = form.querySelector('.form_input[name="name"]');
+            const userPhone = form.querySelector('.form_input[name="tel"]');
+            const textArea = form.querySelector('.form_textarea');
+            userName.addEventListener('input', removeErr);
+            if (userPhone) {
+                userPhone.addEventListener('input', removeErr);
+            }
+            if (textArea) {
+                textArea.addEventListener('input', removeErr);
+            }
 
-    // валидация
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (userName.value.trim().length < 1) {
+                    userName.closest('.form_input_group').classList.add('error');
+                }
+                if (textArea) {
+                    if (textArea.value.trim().length < 1) {
+                        textArea.closest('.form_input_group').classList.add('error');
+                    }
+                }
+                if (userPhone) {
+                    if (userPhone.value.replace(/\D/g, '').length < 11) {
+                        userPhone.closest('.form_input_group').classList.add('error');
+                    }
+                }
+                const formErrors = form.querySelector('.error');
+                if (formErrors) return;
+                //backend ajax
+                //send-email
+                let response = await fetch('/api/send-calculator', {
+                    method: 'POST',
+                    body: new FormData(form)
+                });
+
+
+                let result = await response.json();
+
+                if (result.success) {
+                    form.innerHTML = '<div  class="alert alert-opacity">Ваше сообщение успешно оправлено</div>';
+
+                } else {
+                    form.innerHTML = '<div  class="alert alert-error">Ошибка отправки сообщения</div>';
+                }
+                setTimeout(() => {
+                    selectedModal.classList.add('hide');
+                }, 2000)
+                return false;
+                console.log('Send');
+            });
+        });
+    }
+
+
+    form()
+
+
     function removeErr(e) {
         e.target.closest('.form_input_group').classList.remove('error');
     }
-    const forms = document.querySelectorAll('.validate_form');
-    forms.forEach(form => {
-        const userName = form.querySelector('.form_input[name="name"]');
-        const userPhone = form.querySelector('.form_input[name="tel"]');
-        const textArea = form.querySelector('.form_textarea');
-        userName.addEventListener('input', removeErr);
-        if (userPhone) {
-            userPhone.addEventListener('input', removeErr);
-        }
-        if (textArea) {
-            textArea.addEventListener('input', removeErr);
-        }
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (userName.value.trim().length < 1) {
-                userName.closest('.form_input_group').classList.add('error');
-            }
-            if (textArea) {
-                if (textArea.value.trim().length < 1) {
-                    textArea.closest('.form_input_group').classList.add('error');
-                }
-            }
-            if (userPhone) {
-                if (userPhone.value.replace(/\D/g, '').length < 11) {
-                    userPhone.closest('.form_input_group').classList.add('error');
-                }
-            }
-            const formErrors = form.querySelector('.error');
-            if (formErrors) return;
-            //backend ajax
-            console.log('Send');
-        });
-    });
 
     // звездочки в отзывах
     $('.review_rating span').hover(
@@ -219,52 +301,104 @@ $(document).ready(function () {
     let getScrollWidth = () => window.innerWidth - document.documentElement.offsetWidth;
     let browserScrollWidth = getScrollWidth();
 
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', async (e) => {
         const target = e.target;
+        let response = {}
+        let result = ''
+        let targetId;
+        let selectedModal;
         if (target.closest('[data-open-modal]')) {
             e.preventDefault();
-            const targetId = target.closest('[data-open-modal]').dataset.openModal;
-            const selectedModal = document.querySelector(`[data-modal="${targetId}"]`);
-            selectedModal.classList.add('show');
-            body.classList.add('locked');
-            if (getScrollWidth() == 0) {
-                body.style.paddingRight = `${browserScrollWidth}px`;
+            document.querySelector(".modal_body").innerHTML = "";
+            switch (target.dataset.type) {
+                case 'order':
+
+                    response = await fetch('/api/get-form-order&link=' + target.dataset.link, {
+                        method: 'POST',
+
+                    });
+                    targetId = target.closest('[data-open-modal]').dataset.openModal;
+                    selectedModal = document.querySelector(`[data-modal="${targetId}"]`);
+                    selectedModal.classList.add('show');
+
+                    result = await response.text();
+                    document.querySelector(".modal_body").innerHTML = result;
+                    // calculator();
+                    form();
+                    break;
+                case 'calc':
+                    response = await fetch('/api/get-form-calc&link=' + target.dataset.link, {
+                        method: 'POST',
+
+                    });
+                    targetId = target.closest('[data-open-modal]').dataset.openModal;
+                    selectedModal = document.querySelector(`[data-modal="${targetId}"]`);
+                    selectedModal.classList.add('show');
+
+
+
+                    result = await response.text();
+                    document.querySelector(".modal_body").innerHTML = result;
+
+                    form();
+                    calculator();
+                    break;
+                default:
+
+                    response = await fetch('/api/get-fast&link=' + target.dataset.link, {
+                        method: 'POST',
+                    });
+
+
+
+                    result = await response.text();
+                    document.querySelector(".modal_body").innerHTML = result;
+
+                    targetId = target.closest('[data-open-modal]').dataset.openModal;
+                    selectedModal = document.querySelector(`[data-modal="${targetId}"]`);
+                    selectedModal.classList.add('show');
+
+                    body.classList.add('locked');
+                    if (getScrollWidth() == 0) {
+                        body.style.paddingRight = `${browserScrollWidth}px`;
+                    }
+                    // инитю слайдер при открытии модалки
+                    // слайдер в быстром просмотре
+                    //маленькие слайды
+                    var swiperViewingOptionsSmall = {
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                        grabCursor: true,
+                        watchOverflow: true,
+                        watchSlidesVisibility: true,
+                        watchSlidesProgress: true,
+                        breakpoints: {
+                            769: {
+                                spaceBetween: 20,
+                            },
+                        },
+                    };
+
+                    let swiperViewingSmall = new Swiper(".gallery_small_viewing", swiperViewingOptionsSmall);
+
+                    //большой слайд
+                    var swiperViewingOptions = {
+                        slidesPerView: 1,
+                        speed: 500,
+                        spaceBetween: 10,
+                        grabCursor: true,
+                        watchOverflow: true,
+                        watchSlidesVisibility: true,
+                        watchSlidesProgress: true,
+                        mousewheelControl: true,
+                        thumbs: {
+                            swiper: swiperViewingSmall,
+                        },
+                    };
+
+                    let swiperViewing = new Swiper(".gallery_big_viewing", swiperViewingOptions);
             }
-            // инитю слайдер при открытии модалки
-            // слайдер в быстром просмотре
-            //маленькие слайды
-            var swiperViewingOptionsSmall = {
-                slidesPerView: 3,
-                spaceBetween: 10,
-                grabCursor: true,
-                watchOverflow: true,
-                watchSlidesVisibility: true,
-                watchSlidesProgress: true,
-                breakpoints: {
-                    769: {
-                        spaceBetween: 20,
-                    },
-                },
-            };
 
-            let swiperViewingSmall = new Swiper(".gallery_small_viewing", swiperViewingOptionsSmall);
-
-            //большой слайд
-            var swiperViewingOptions = {
-                slidesPerView: 1,
-                speed: 500,
-                spaceBetween: 10,
-                grabCursor: true,
-                watchOverflow: true,
-                watchSlidesVisibility: true,
-                watchSlidesProgress: true,
-                mousewheelControl: true,
-                thumbs: {
-                    swiper: swiperViewingSmall,
-                },
-            };
-
-            let swiperViewing = new Swiper(".gallery_big_viewing", swiperViewingOptions);
         }
         if (target.closest('[data-modal-close]')) {
             e.preventDefault();
@@ -285,54 +419,7 @@ $(document).ready(function () {
 // калькулятор
 window.onload = function () {
     if (document.getElementsByClassName("home_calc").length) {
-
-        let cost = document.getElementById("cost"),
-            prepaid = document.getElementById("prepaid"),
-            calcInput = document.getElementsByClassName("inputfield"),
-            term = document.getElementById("term"),
-            payment = document.getElementById("payment"),
-            paymentResult,
-            monthPayment = document.getElementById('month-payment'),
-            stavka = 0.006;
-
-        cost.value = 1000000;
-        prepaid.value = 25;
-        term.value = 12;
-
-        payment.textContent = Math.floor(cost.value / 100 * prepaid.value);
-        payment.textContent = payment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
-
-        paymentResult = payment.textContent.replace(/\s+/g, '');
-
-        monthPayment.textContent = Math.floor(
-            ((cost.value - paymentResult) / term.value) * 1.2
-        );
-        monthPayment.textContent = monthPayment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
-
-
-        for (let i = 0; i < calcInput.length; i++) {
-            calcInput[i].onchange = function () {
-
-                if (cost.value > 15000000) cost.value = 15000000;
-                if (cost.value < 300000) cost.value = 300000;
-                if (prepaid.value < 5) prepaid.value = 5;
-                if (prepaid.value > 50) prepaid.value = 50;
-                if (term.value < 12) term.value = 12;
-                if (term.value > 50) term.value = 50;
-
-                payment.textContent = Math.floor(cost.value / 100 * prepaid.value);
-                payment.textContent = payment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
-
-                paymentResult = payment.textContent.replace(/\s+/g, '');
-                paymentResult = Number(paymentResult);
-
-                monthPayment.textContent = Math.floor(
-                    ((cost.value - paymentResult) / term.value) * 1.2
-                );
-                monthPayment.textContent = monthPayment.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
-
-            }
-        }
+        calculator();
     }
 };
 $(document).ready(function () {
@@ -420,4 +507,25 @@ $(document).ready(function () {
         }
         $need_use_js_form_filter_change = 1;
     }
+
+    //слайдер на стр запчастей (аналоги)
+    var swiperWallet = new Swiper(".analogue_slider .swiper", {
+        slidesPerView: "auto",
+        spaceBetween: 20,
+        watchSlidesProgress: true,
+        mousewheelControl: true,
+        watchOverflow: true,
+        watchSlidesVisibility: true,
+        navigation: {
+            nextEl: ".arrow-right",
+            prevEl: ".arrow-left"
+        },
+
+        // breakpoints: {
+        //     769: {
+        //         spaceBetween: 45,
+        //     },
+        // },
+    });
+
 })
