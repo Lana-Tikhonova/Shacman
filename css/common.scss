@@ -11,8 +11,8 @@
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url(/fonts/Montserrat-Regular.woff2) format("woff2");
-	src: url(/fonts/Montserrat-Regular.woff) format("woff");
+	src: url(/local/fonts/Montserrat-Regular.woff2) format("woff2");
+	src: url(/local/fonts/Montserrat-Regular.woff) format("woff");
 }
 
 @font-face {
@@ -20,8 +20,8 @@
 	font-style: normal;
 	font-weight: 500;
 	font-display: swap;
-	src: url(/fonts/Montserrat-Medium.woff2) format("woff2");
-	src: url(/fonts/Montserrat-Medium.woff) format("woff");
+	src: url(/local/fonts/Montserrat-Medium.woff2) format("woff2");
+	src: url(/local/fonts/Montserrat-Medium.woff) format("woff");
 }
 
 @font-face {
@@ -29,8 +29,8 @@
 	font-style: normal;
 	font-weight: 600;
 	font-display: swap;
-	src: url(/fonts/Montserrat-SemiBold.woff2) format("woff2");
-	src: url(/fonts/Montserrat-SemiBold.woff) format("woff");
+	src: url(/local/fonts/Montserrat-SemiBold.woff2) format("woff2");
+	src: url(/local/fonts/Montserrat-SemiBold.woff) format("woff");
 }
 
 @font-face {
@@ -38,8 +38,8 @@
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url(/fonts/Montserrat-Bold.woff2) format("woff2");
-	src: url(/fonts/Montserrat-Bold.woff) format("woff");
+	src: url(/local/fonts/Montserrat-Bold.woff2) format("woff2");
+	src: url(/local/fonts/Montserrat-Bold.woff) format("woff");
 }
 
 $color_black: #444444;
@@ -1448,6 +1448,61 @@ span.breadcrumb_link {
 	}
 }
 
+@media screen and (min-width:1601px) {
+	.slider_block {
+		overflow: initial;
+		padding: 0;
+		margin: 0;
+
+		.swiper {
+
+			padding: 20px;
+			margin: -20px -20px 0;
+			overflow: hidden;
+			position: relative;
+
+			&.slider_end {
+				&:after {
+					display: none;
+				}
+			}
+
+			&.slider_move {
+				&:before {
+					display: block;
+				}
+			}
+
+			&:after,
+			&:before {
+				z-index: 3;
+				content: '';
+				display: block;
+				position: absolute;
+				top: 10px;
+				right: 0;
+				width: 130px;
+				height: calc(100% - 10px - 30px);
+				background: linear-gradient(270deg, #fff 39.01%, rgba(250, 250, 250, 0.00) 100%);
+			}
+
+			&:after {
+				right: -20px;
+			}
+
+			&:before {
+				left: -20px;
+				transform: rotate(180deg);
+				display: none;
+			}
+		}
+
+		.swiper-container-horizontal>.swiper-scrollbar {
+			left: 20px;
+		}
+	}
+}
+
 .slider_block {
 	position: relative;
 	overflow: hidden;
@@ -1622,34 +1677,22 @@ span.breadcrumb_link {
 }
 
 .footer {
-	padding-top: 168px;
-	padding-bottom: 90px;
-	background: #444;
-	color: #fff;
-
-	.menu_wrapper {
-		margin-bottom: 100px;
-	}
-
-	.menu {
-		gap: 12px;
-
-		a {
-			color: #FFF;
-		}
-	}
+	padding-top: 110px;
+	padding-bottom: 33px;
 }
 
 .footer_block {
 	display: flex;
 	align-items: flex-start;
-	justify-content: center;
-	margin-bottom: 150px;
-	gap: 56px;
+	justify-content: space-between;
+	margin-bottom: 45px;
 
 	a {
-		text-decoration-line: none;
-		color: #fff;
+		text-decoration-line: underline;
+
+		&:not(:last-of-type) {
+			margin-bottom: 20px;
+		}
 	}
 
 	a,
@@ -1658,46 +1701,21 @@ span.breadcrumb_link {
 	}
 }
 
-.footer_block_item_title {
-	margin-bottom: 24px;
-	font-size: 32px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 120%;
-}
-
-.footer_block_item_text {
-	font-size: 16px;
-	font-style: normal;
-	line-height: 140%;
-}
-
-.footer_block_item_info {
-	display: flex;
-	gap: 56px;
-}
-
 .footer_block_title {
-	font-size: 24px;
-	font-style: normal;
+	line-height: 30px;
 	font-weight: 700;
-	line-height: 120%;
-	margin-bottom: 16px;
+}
+
+.footer_block_right {
+	text-align: right;
+
+	a:not(:last-of-type) {
+		margin-bottom: 10px;
+	}
 }
 
 .footer_text {
-	text-align: center;
-	max-width: 570px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.footer_copywriting {
-	margin-top: 24px;
-	font-size: 24px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 120%;
+	margin-top: 16px;
 	text-align: center;
 }
 
@@ -1982,61 +2000,6 @@ span.breadcrumb_link {
 	}
 }
 
-@media screen and (min-width:1601px) {
-	.slider_block {
-		overflow: initial;
-		padding: 0;
-		margin: 0;
-
-		.swiper {
-
-			padding: 20px 20px 60px;
-			margin: -20px -20px 0;
-			overflow: hidden;
-			position: relative;
-
-			&.slider_end {
-				&:after {
-					display: none;
-				}
-			}
-
-			&.slider_move {
-				&:before {
-					display: block;
-				}
-			}
-
-			&:after,
-			&:before {
-				z-index: 3;
-				content: '';
-				display: block;
-				position: absolute;
-				top: 10px;
-				right: 0;
-				width: 130px;
-				height: calc(100% - 10px - 30px);
-				background: linear-gradient(270deg, #fff 39.01%, rgba(250, 250, 250, 0.00) 100%);
-			}
-
-			&:after {
-				right: -20px;
-			}
-
-			&:before {
-				left: -20px;
-				transform: rotate(180deg);
-				display: none;
-			}
-		}
-
-		.swiper-container-horizontal>.swiper-scrollbar {
-			left: 20px;
-		}
-	}
-}
-
 @media screen and (max-width:1900px) {
 	.fix_btns {
 		right: 20px;
@@ -2242,19 +2205,6 @@ span.breadcrumb_link {
 		width: 33.33%;
 		margin-bottom: 40px;
 	}
-
-	.footer {
-		padding-top: 120px;
-	}
-
-	.footer_block_item_title {
-		font-size: 27px;
-	}
-
-	.footer_block_title {
-		font-size: 22px;
-	}
-
 }
 
 @media screen and (max-width:992px) {
@@ -2333,41 +2283,6 @@ span.breadcrumb_link {
 
 	.mb-10 {
 		margin-bottom: 80px;
-	}
-
-	.footer {
-		.menu {
-			justify-content: flex-start;
-			flex-wrap: wrap;
-			gap: 36px;
-
-			a {
-				padding: 10px;
-			}
-		}
-
-		.container {
-			padding-left: 56px;
-			padding-right: 56px;
-		}
-	}
-
-	.footer_block {
-		flex-direction: column;
-	}
-}
-
-@media screen and (max-width:700px) {
-	.footer {
-		padding-top: 120px;
-
-		.menu {
-			margin-bottom: 120px;
-		}
-	}
-
-	.footer_block_item_info {
-		flex-direction: column;
 	}
 }
 
@@ -2524,6 +2439,11 @@ span.breadcrumb_link {
 		justify-content: center;
 		align-items: center;
 		text-align: center;
+	}
+
+	.footer_block_right {
+		text-align: center;
+		margin-top: 10px;
 	}
 
 	.footer {
@@ -3572,9 +3492,9 @@ span.breadcrumb_link {
 		}
 	}
 
-	// a[href]:not([class]) {
-	// 	color: $color_yellow
-	// }
+	a[href]:not([class]) {
+		color: $color_yellow
+	}
 }
 
 @media screen and (min-width:993px) {
