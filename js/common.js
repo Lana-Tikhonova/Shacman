@@ -71,21 +71,21 @@ $(document).ready(function () {
         on: {
             progress: function (swiper) {
                 if (swiper.isEnd) {
-                    $('.slider_block .swiper').addClass('slider_end')
+                    $(this.el).addClass('slider_end')
                 } else {
-                    $('.slider_block .swiper').removeClass('slider_end')
+                    $(this.el).removeClass('slider_end')
                 }
                 if (swiper.isBeginning) {
-                    $('.slider_block .swiper').removeClass('slider_move')
+                    $(this.el).removeClass('slider_move')
                 } else {
-                    $('.slider_block .swiper').addClass('slider_move')
+                    $(this.el).addClass('slider_move')
                 }
             },
         },
     });
 
     function hederFix(e) {
-        if ($(window).width() > 1101) {
+        if ($(window).width() > 1301) {
             let hederHeight = $('.header').outerHeight();
             $('.home_block').css('paddingTop', `${hederHeight}px`);
         }
@@ -194,7 +194,7 @@ $(document).ready(function () {
 
     // фикс меню 
     function fixMenu(e) {
-        if ($(this).scrollTop() > 10) {
+        if ($(this).scrollTop() > 110) {
             $('.mobile_menu_close').addClass('fix');
             $('.mobile_menu_btn').addClass('fix');
         } else {
