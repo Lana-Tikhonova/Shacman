@@ -746,7 +746,7 @@ span.breadcrumb_link {
 	}
 
 	.home_block {
-		background-image: url(/local/imgs/home_img.jpg);
+		background-image: url(/localimgs/home_img.jpg);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -3794,7 +3794,7 @@ span.breadcrumb_link {
 	div {
 		width: 225px;
 		height: 36px;
-		background: url(/local/imgs/star_group.svg) 0 -37px repeat-x;
+		background: url(/localimgs/star_group.svg) 0 -37px repeat-x;
 		display: flex;
 		align-items: center;
 	}
@@ -3808,7 +3808,7 @@ span.breadcrumb_link {
 
 		&.active,
 		&.hover {
-			background: url(/local/imgs/star_group.svg) repeat-x
+			background: url(/localimgs/star_group.svg) repeat-x
 		}
 	}
 }

@@ -633,7 +633,7 @@ span.breadcrumb_link {
   background: rgba(255, 255, 255, 0.1);
 }
 .page_home .home_block {
-  background-image: url(/local/imgs/home_img.jpg);
+  background-image: url(/localimgs/home_img.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3143,7 +3143,7 @@ span.breadcrumb_link {
 .review_rating div {
   width: 225px;
   height: 36px;
-  background: url(/local/imgs/star_group.svg) 0 -37px repeat-x;
+  background: url(/localimgs/star_group.svg) 0 -37px repeat-x;
   display: flex;
   align-items: center;
 }
@@ -3155,7 +3155,7 @@ span.breadcrumb_link {
   flex: 0 0 auto;
 }
 .review_rating span.active, .review_rating span.hover {
-  background: url(/local/imgs/star_group.svg) repeat-x;
+  background: url(/localimgs/star_group.svg) repeat-x;
 }
 
 @media screen and (max-width: 992px) {
