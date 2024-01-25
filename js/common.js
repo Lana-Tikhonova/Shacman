@@ -220,21 +220,52 @@ $(document).ready(function () {
         // валидация
         const forms = document.querySelectorAll('.validate_form');
         forms.forEach(form => {
+            const inputText = form.querySelectorAll('.form_input[type="text"]');
             const userName = form.querySelector('.form_input[name="name"]');
             const userPhone = form.querySelector('.form_input[name="tel"]');
+            const userEmail = form.querySelector('.form_input[name="email"]');
+            const userPassword = form.querySelectorAll('.form_input[type="password"]');
+            let password = form.querySelector('#password');
+            let confirmPassword = form.querySelector('#confirm_password');
             const textArea = form.querySelector('.form_textarea');
-            userName.addEventListener('input', removeErr);
+            if (inputText) {
+                for (let i = 0; i < inputText.length; i++) {
+                    inputText[i].addEventListener('input', removeErr);
+                }
+            }
+
+            if (userName) {
+                userName.addEventListener('input', removeErr);
+            }
             if (userPhone) {
                 userPhone.addEventListener('input', removeErr);
             }
             if (textArea) {
                 textArea.addEventListener('input', removeErr);
             }
+            if (userEmail) {
+                userEmail.addEventListener('input', removeErr);
+            }
+            if (userPassword) {
+                for (let i = 0; i < userPassword.length; i++) {
+                    userPassword[i].addEventListener('input', removeErr);
+                }
+            }
 
             form.addEventListener('submit', async (e) => {
+
                 e.preventDefault();
-                if (userName.value.trim().length < 1) {
-                    userName.closest('.form_input_group').classList.add('error');
+                if (inputText) {
+                    for (let i = 0; i < inputText.length; i++) {
+                        if (inputText[i].value.trim().length < 1) {
+                            inputText[i].closest('.form_input_group').classList.add('error');
+                        }
+                    }
+                }
+                if (userName) {
+                    if (userName.value.trim().length < 1) {
+                        userName.closest('.form_input_group').classList.add('error');
+                    }
                 }
                 if (textArea) {
                     if (textArea.value.trim().length < 1) {
@@ -246,6 +277,24 @@ $(document).ready(function () {
                         userPhone.closest('.form_input_group').classList.add('error');
                     }
                 }
+                if (userEmail) {
+                    validEmailFunc(userEmail);
+                }
+                if (userPassword) {
+                    if (confirmPassword.value !== password.value) {
+                        confirmPassword.closest('.form_input_group').classList.add('error');
+                        confirmPassword.nextElementSibling.innerHTML = 'Пароли не совпадают';
+                    } else {
+                        confirmPassword.closest('.form_input_group').classList.remove('error');
+                    }
+                    for (let i = 0; i < userPassword.length; i++) {
+                        if (userPassword[i].value.trim().length < 3) {
+                            userPassword[i].closest('.form_input_group').classList.add('error');
+                        }
+                    }
+
+                }
+
                 const formErrors = form.querySelector('.error');
                 if (formErrors) return;
                 //backend ajax
@@ -276,11 +325,47 @@ $(document).ready(function () {
 
     form()
 
-
     function removeErr(e) {
         e.target.closest('.form_input_group').classList.remove('error');
     }
 
+    // переход на след шаг при регистрации
+    $(document).on('click', '.next_step_btn', function (e) {
+        let form = $(this).closest('.form_auth');
+        let formInput = form.find('.form_input[type="text"]');
+        const userEmail = form.find('.form_input[name="email"]');
+        for (let i = 0; i < formInput.length; i++) {
+            if (formInput[i].value.trim().length < 1) {
+                formInput[i].closest('.form_input_group').classList.add('error');
+            }
+        }
+        validEmailFunc(userEmail[0]);
+        if ($('.first_step').find('.form_input_group').hasClass('error')) {
+            return false;
+        } else {
+            $('.first_step').hide();
+            $('.last_step').show();
+            $(this).hide();
+        }
+    });
+
+    // проверка валидности email
+    function validEmailFunc(userEmail) {
+
+        const userEmailVal = userEmail.value;
+        if (userEmailVal.length < 1) {
+            userEmail.closest('.form_input_group').classList.add('error');
+            userEmail.nextElementSibling.innerHTML = 'Заполните поле';
+        } else {
+            var regEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            var validEmail = regEx.test(userEmailVal);
+            if (!validEmail) {
+                userEmail.closest('.form_input_group').classList.add('error');
+                userEmail.nextElementSibling.innerHTML = 'Пожалуйста, введите корректный адрес электронной почты.';
+
+            }
+        }
+    }
 
     // звездочки в отзывах
     $('.review_rating span').hover(

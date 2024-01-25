@@ -51,7 +51,7 @@ $transition: all 0.2s ease;
 html,
 body {
 	max-height: 100%;
-	// height: 100%;
+	height: 100%;
 }
 
 body {
@@ -746,7 +746,7 @@ span.breadcrumb_link {
 	}
 
 	.home_block {
-		background-image: url(/localimgs/home_img.jpg);
+		// background-image: url(/local/imgs/home_img.jpg);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -3794,7 +3794,7 @@ span.breadcrumb_link {
 	div {
 		width: 225px;
 		height: 36px;
-		background: url(/localimgs/star_group.svg) 0 -37px repeat-x;
+		background: url(/local/imgs/star_group.svg) 0 -37px repeat-x;
 		display: flex;
 		align-items: center;
 	}
@@ -3808,7 +3808,7 @@ span.breadcrumb_link {
 
 		&.active,
 		&.hover {
-			background: url(/localimgs/star_group.svg) repeat-x
+			background: url(/local/imgs/star_group.svg) repeat-x
 		}
 	}
 }
@@ -5383,5 +5383,99 @@ span.breadcrumb_link {
 
 	.contacts_page_item .name {
 		font-size: 20px;
+	}
+}
+
+.auth_block_wrapper {
+	padding-top: 90px;
+	padding-bottom: 90px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 614px;
+	min-height: calc(100dvh - 111.5px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.auth_block {
+	border-radius: 34.71px;
+	border: 1px solid rgba(255, 255, 255, 0.10);
+	background: rgba(50, 50, 50, .56);
+	backdrop-filter: blur(15px);
+	box-shadow: 0px 20.826px 41.652px -17.355px rgba(0, 47, 67, 0.15);
+	padding: 50px 40px 60px 57px;
+	position: relative;
+	z-index: 1;
+	width: 100%;
+
+	.form_input_group {
+		margin-bottom: 24px;
+	}
+
+	.btn {
+		margin-top: 16px;
+		font-weight: 700;
+		padding: 20px;
+	}
+}
+
+.auth_block_title {
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 700;
+	margin-bottom: 32px;
+	color: #fff;
+
+}
+
+.auth_block_links {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	column-gap: 30px;
+	row-gap: 16px;
+	margin-top: 30px;
+
+	a {
+		color: #fff;
+		text-decoration-line: underline;
+
+		&:hover {
+			color: $color_yellow;
+		}
+	}
+}
+
+@media screen and (max-width:576px) {
+	.auth_block {
+		padding: 40px 30px;
+		;
+
+	}
+}
+
+.form_input_wrapper_email {}
+
+.form_input_row {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 12px;
+}
+
+.form_input_col_6 {
+	width: calc(50% - 6px);
+	margin-bottom: 12px;
+
+	.form_input_group {
+		margin-bottom: 0;
+		width: 100%;
+
+	}
+}
+
+.auth_block {
+	.last_step {
+		display: none;
 	}
 }
