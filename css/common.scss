@@ -313,6 +313,16 @@ button {
 	}
 }
 
+.btn_red {
+	border-color: #F43;
+	color: #F43;
+
+	&:hover {
+		background: transparent;
+		color: #F43 !important;
+	}
+}
+
 .btn_grey {
 	border-color: #EDEDED;
 	background: #EDEDED;
@@ -5477,5 +5487,72 @@ span.breadcrumb_link {
 .auth_block {
 	.last_step {
 		display: none;
+	}
+}
+
+.modal_auth {
+	text-align: center;
+
+	.modal-content {
+		max-width: 567px;
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	.modal_title {
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 700;
+		margin-bottom: 16px;
+	}
+
+	.btn {
+		min-width: 188px;
+		font-weight: 600;
+	}
+
+	.btn_opacity {
+		border-width: 2px;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	.mofal_text {
+		max-width: 430px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.btn_wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 16px;
+		margin-top: 32px;
+	}
+}
+
+@media screen and (max-width:600px) {
+	.modal_auth {
+		.btn {
+			width: 100%;
+		}
+
+		.modal-content {
+			padding: 40px 30px;
+		}
+	}
+}
+
+@media screen and (max-width:440px) {
+	.modal_auth {
+		.modal_title {
+			font-size: 24px;
+		}
+
+		.modal-content {
+			padding: 40px 20px 30px;
+		}
 	}
 }

@@ -277,6 +277,15 @@ button {
   background: #FFC02D;
 }
 
+.btn_red {
+  border-color: #F43;
+  color: #F43;
+}
+.btn_red:hover {
+  background: transparent;
+  color: #F43 !important;
+}
+
 .btn_grey {
   border-color: #EDEDED;
   background: #EDEDED;
@@ -4618,4 +4627,58 @@ span.breadcrumb_link {
 
 .auth_block .last_step {
   display: none;
+}
+
+.modal_auth {
+  text-align: center;
+}
+.modal_auth .modal-content {
+  max-width: 567px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.modal_auth .modal_title {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.modal_auth .btn {
+  min-width: 188px;
+  font-weight: 600;
+}
+.modal_auth .btn_opacity {
+  border-width: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.modal_auth .mofal_text {
+  max-width: 430px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal_auth .btn_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+@media screen and (max-width: 600px) {
+  .modal_auth .btn {
+    width: 100%;
+  }
+  .modal_auth .modal-content {
+    padding: 40px 30px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .modal_auth .modal_title {
+    font-size: 24px;
+  }
+  .modal_auth .modal-content {
+    padding: 40px 20px 30px;
+  }
 }
