@@ -51,8 +51,57 @@ const calculator = () => {
 }
 
 $(document).ready(function () {
-    //слайдер на главной
+    $('.lk_block_list').each(function (e) {
+        let orderItem = $(this).find('li');
+        let orderItemToggle = $(this).parent().find('.all_btn');
+        let orderItemToggleQuantity = orderItemToggle.find('.all_btn_quantity');
+        if ($(window).width() > 576) {
+            let orderItemLength = orderItem.slice(2).length;
+            if (orderItem.length > 2) {
+                orderItemToggle.show();
+                orderItemToggleQuantity.text(orderItemLength);
+                $(this).addClass('opacity');
+            }
+        } else {
+            let orderItemLength = orderItem.slice(3).length;
+            if (orderItem.length > 3) {
+                orderItemToggle.show();
+                orderItemToggleQuantity.text(orderItemLength);
+                $(this).addClass('opacity');
+            }
+        }
+    });
 
+    //перемещение
+    let move = (item, parent, parentOriginal, width) => {
+        if ($(window).width() <= width) {
+            if (!item.hasClass('done')) {
+                parent.after(item);
+                item.addClass('done');
+            }
+        } else {
+            if (item.hasClass('done')) {
+                item.appendTo(parentOriginal);
+                item.removeClass('done');
+            }
+        }
+    };
+
+    const block_item = $('.lk_block_settings .lk_orders_info');
+    const block_parent = $('.lk_block_settings .lk_block_right');
+    const block_parentOriginal = $('.lk_block_settings .lk_block_left');
+
+    move(block_item, block_parent, block_parentOriginal, 1300);
+
+    $(window).resize(function () {
+        move(block_item, block_parent, block_parentOriginal, 1300);
+    });
+
+    $('.all_btn').on('click', function (e) {
+        $(this).parent().find('.lk_block_list').toggleClass('active')
+        $(this).toggleClass('active')
+    });
+    //слайдер на главной
     var swiperWallet = new Swiper(".slider_block .swiper", {
         slidesPerView: "auto",
         spaceBetween: 16,
@@ -406,7 +455,7 @@ $(document).ready(function () {
         let selectedModal;
         if (target.closest('[data-open-modal]')) {
             e.preventDefault();
-            document.querySelector(".modal_body").innerHTML = "";
+            // document.querySelector(".modal_body").innerHTML = "";
             switch (target.dataset.type) {
                 case 'order':
 
@@ -448,8 +497,8 @@ $(document).ready(function () {
 
 
 
-                    result = await response.text();
-                    document.querySelector(".modal_body").innerHTML = result;
+                    // result = await response.text();
+                    // document.querySelector(".modal_body").innerHTML = result;
 
                     targetId = target.closest('[data-open-modal]').dataset.openModal;
                     selectedModal = document.querySelector(`[data-modal="${targetId}"]`);

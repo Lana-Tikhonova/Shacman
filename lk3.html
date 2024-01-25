@@ -8,7 +8,7 @@
     <meta name="description"
         content="Сделайте покупку техники Shacman доступной вместе с официальным дилером Большегруз. Качественные самосвалы, тягачи в наличии." />
     <meta name="keywords" content="" />
-    <title>Вход</title>
+    <title>Личный кабинет</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- шрифты -->
     <link rel="preload" href="fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/common.css?15">
 </head>
 
-<body class='page_home'>
+<body class=''>
     <div class='fix_btns'>
         <a href="#" class='fix_btns_item'>
             <span class='fix_btns_item_anim fix_btns_item_anim_1'></span>
@@ -36,7 +36,7 @@
             <img src="imgs/whatsap.svg" alt="">
         </a>
     </div>
-    <div class='home_block' style="background-image: url(imgs/auth.jpg);">
+    <div class='home_block'>
         <header class="header">
             <div class="container">
                 <div class='header_row'>
@@ -111,90 +111,198 @@
 
             </div>
         </div>
+    </div>
+
+    <main>
         <div class='container'>
-            <div class='auth_block_wrapper'>
-                <div class='auth_block'>
-                    <div class='auth_block_title'>Вход</div>
-                    <form method="post" class="validate_form">
-                        <label class="form_input_group">
-                            <span class="form_input_wrapper">
-                                <input type="email" name="email" placeholder="E-mail" class="form_input">
-                                <span class="text_error">Заполните поле</span>
-                            </span>
-                        </label>
-                        <label class="form_input_group">
-                            <span class="form_input_wrapper">
-                                <input type="password" name="password" placeholder="Пароль" class="form_input"
-                                    autocomplete="new-password">
-                                <span class="text_error">Заполните поле</span>
-                            </span>
-                        </label>
-                        <button class="btn" type="submit">Войти</button>
-                    </form>
-                    <div class='auth_block_links'>
-                        <a href="#">Регистрация</a>
-                        <a href="#">Забыли пароль?</a>
+            <ul class='breadcrumb'>
+                <li class='breadcrumb_item'>
+                    <a href="/" class='breadcrumb_link'>Главная</a>
+                    <span class='breadcrumb_pipe'>→</span>
+                </li>
+                <li class='breadcrumb_item'>
+                    <span class='breadcrumb_link'>Личный кабинет</span>
+                </li>
+            </ul>
+        </div>
+        <section class='section'>
+            <div class='container'>
+                <h1>Личный кабинет</h1>
+                <!-- такой же блок как и в lk2.html, отличется только классом у lk_block, 
+                        если текущие заказы, то - lk_block_current
+                        если история заказов, то - lk_block_history
+                        если настройки, то - lk_block_settings
+                        От этого зависит ширина столбцов
+                        атк же класс lk_block_settings нужен в js для перемещения блока lk_orders_info заблок с настройками на телефоне
+                     -->
+                <div class='lk_block lk_block_settings'>
+                    <div class='lk_block_left'>
+                        <div class='user_info lk_block_item'>
+                            <div class='user_info_img'></div>
+                            <div class='user_info_block'>
+                                <div class='user_info_name'>Иван Иванов Иванович</div>
+                                <div class='user_info_text'>mail@mail.com</div>
+                                <a href="#" class='btn'>Изменить личные данные</a>
+                            </div>
+                            <a href="#" class='btn_exit'>
+                                <svg width="44" height="44" viewBox="0 0 44 44" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.0642 27.8831V16.2242C12.0642 14.4204 12.7808 12.6905 14.0562 11.4151C15.3317 10.1397 17.0615 9.42313 18.8653 9.42313H24.6947V7.47998H18.8653C16.5462 7.47998 14.3221 8.40124 12.6822 10.0411C11.0424 11.6809 10.1211 13.9051 10.1211 16.2242L10.1211 27.8831C10.1211 30.2022 11.0424 32.4263 12.6822 34.0662C14.3221 35.706 16.5462 36.6273 18.8653 36.6273H24.6947V34.6841H18.8653C17.0615 34.6841 15.3317 33.9676 14.0562 32.6921C12.7808 31.4167 12.0642 29.6868 12.0642 27.8831Z"
+                                        fill="#FF4433" />
+                                    <path
+                                        d="M33.0129 21.2371L27.1835 17.3508C27.0365 17.2514 26.8652 17.1942 26.6881 17.1853C26.511 17.1764 26.3348 17.2161 26.1787 17.3002C26.0225 17.3843 25.8924 17.5095 25.8023 17.6623C25.7123 17.815 25.6658 17.9896 25.6678 18.1669V21.0816H14.9805V23.0248H25.6678V25.9395C25.6658 26.1168 25.7123 26.2913 25.8023 26.4441C25.8924 26.5969 26.0225 26.7221 26.1787 26.8062C26.3348 26.8902 26.511 26.93 26.6881 26.9211C26.8652 26.9122 27.0365 26.8549 27.1835 26.7556L33.0129 22.8693C33.1452 22.7804 33.2535 22.6604 33.3285 22.5198C33.4034 22.3791 33.4426 22.2222 33.4426 22.0629C33.4426 21.9036 33.4034 21.7467 33.3285 21.606C33.2535 21.4654 33.1452 21.3454 33.0129 21.2565V21.2371Z"
+                                        fill="#FF4433" />
+                                </svg>
+                                Выйти
+                            </a>
+                        </div>
+                        <ul class='lk_orders_info lk_block_item'>
+                            <li><a href="#">Текущие заказы (2)</a></li>
+                            <li><a href="#" class=''>История заказов</a></li>
+                        </ul>
+                    </div>
+                    <div class='lk_block_right lk_block_item'>
+                        <form>
+                            <div class='form_input_row'>
+                                <div class='form_input_col_6'>
+                                    <label class="form_input_group">
+                                        <span class="form_input_wrapper">
+                                            <input type="text" name="name" placeholder="Имя" class="form_input"
+                                                value="Иван">
+                                            <span class="text_error">Заполните поле</span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class='form_input_col_6'>
+                                    <label class="form_input_group">
+                                        <span class="form_input_wrapper">
+                                            <input type="text" name="lastName" placeholder="Фамилия" class="form_input"
+                                                value="Иванов">
+                                            <span class="text_error">Заполните поле</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <label class="form_input_group">
+                                <span class="form_input_wrapper">
+                                    <input type="text" name="middleName" placeholder="Отчество" class="form_input"
+                                        value="Иванович">
+                                    <span class="text_error">Заполните поле</span>
+                                </span>
+                            </label>
+                            <label class="form_input_group">
+                                <span class="form_input_wrapper">
+                                    <input type="email" name="email" placeholder="E-mail" class="form_input"
+                                        value="mail@mail.com" disabled>
+                                    <span class="text_error">Заполните поле</span>
+                                </span>
+                            </label>
+                            <button class='btn'>Сохранить изменения</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Модалки, те что сверху в макете, отличаются от существующих модалок классом modal_small, такие же модалки будут в лк -->
-    <div class="modal modal_small" data-modal="modal_auth">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <button type="button" class="close" data-modal-close="">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M13.8854 12L19.6094 6.27608C20.1307 5.75475 20.1307 4.91208 19.6094 4.39075C19.0881 3.86942 18.2454 3.86942 17.7241 4.39075L12.0001 10.1147L6.27619 4.39075C5.75486 3.86942 4.9122 3.86942 4.39087 4.39075C3.86955 4.91208 3.86955 5.75475 4.39087 6.27608L10.1148 12L4.39087 17.724C3.86955 18.2453 3.86955 19.088 4.39087 19.6093C4.65087 19.8693 4.9922 20 5.33353 20C5.67486 20 6.01619 19.8693 6.27619 19.6093L12.0001 13.8854L17.7241 19.6093C17.9841 19.8693 18.3254 20 18.6667 20C19.0081 20 19.3494 19.8693 19.6094 19.6093C20.1307 19.088 20.1307 18.2453 19.6094 17.724L13.8854 12Z">
-                        </path>
-                    </svg>
-                </button>
-                <div class="modal_body">
-                    <div class='modal_title'>Войти в аккаунт?</div>
-                    <div class='mofal_text'>Мы заметили, что аккаунт на указанную при регистрации почту уже
-                        существует.<br>
-                        Хотите войти?</div>
-                    <div class="btn_wrapper">
-                        <a href="#" class='btn'>Войти</a>
-                        <!-- тут есть доп класс чтобы кнопка была красной btn_red-->
-                        <div class='btn btn_opacity btn_red' data-modal-close>Нет, я введу другую почту</div>
+        </section>
+        <section class="contacts">
+            <div class='contacts_block'>
+                <div class="contacts_block container">
+                    <div class="contacts_block_item contacts_map">
+                        <iframe
+                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A63ff4e976cc02f33b58328005259ffa0a614735960f5019851b607379b2b9c6a&amp;source=constructor"></iframe>
+                    </div>
+                    <div class="contacts_block_item contacts_info">
+                        <h4 class='contacts_title'> Оставьте свои контакты,
+                            и мы Вам перезвоним!</h4>
+                        <div class="contacts_text">
+                            Заполните форму, отправьте заявку, и мы свяжемся с Вами в ближайшее время.
+                        </div>
+                        <form method="post" class="contacts_form validate_form">
+                            <label class='form_input_group'>
+                                <span class='form_input_wrapper'>
+                                    <input type="text" name="name" placeholder="Как к Вам обращаться?"
+                                        class='form_input'>
+                                    <span class='text_error'>Заполните поле</span>
+                                </span>
+                            </label>
+                            <label class='form_input_group'>
+                                <span class='form_input_wrapper'>
+                                    <input type="tel" name="tel" placeholder="Ваш телефон" class='form_input'>
+                                    <span class='text_error'>Заполните поле</span>
+                                </span>
+                            </label>
+                            <button class='btn' type="submit">Отправить и ожидать звонка</button>
+                            <div class="form_agreement">Нажимая кнопку «Заказать» вы даете свое согласие на обработку
+                                персональных данных</div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal_bg"></div>
-    </div>
-    <div class="modal modal_small" data-modal="modal_reg">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <button type="button" class="close" data-modal-close="">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M13.8854 12L19.6094 6.27608C20.1307 5.75475 20.1307 4.91208 19.6094 4.39075C19.0881 3.86942 18.2454 3.86942 17.7241 4.39075L12.0001 10.1147L6.27619 4.39075C5.75486 3.86942 4.9122 3.86942 4.39087 4.39075C3.86955 4.91208 3.86955 5.75475 4.39087 6.27608L10.1148 12L4.39087 17.724C3.86955 18.2453 3.86955 19.088 4.39087 19.6093C4.65087 19.8693 4.9922 20 5.33353 20C5.67486 20 6.01619 19.8693 6.27619 19.6093L12.0001 13.8854L17.7241 19.6093C17.9841 19.8693 18.3254 20 18.6667 20C19.0081 20 19.3494 19.8693 19.6094 19.6093C20.1307 19.088 20.1307 18.2453 19.6094 17.724L13.8854 12Z">
-                        </path>
-                    </svg>
-                </button>
-                <div class="modal_body">
-                    <div class='modal_title'>Аккаунта не&nbsp;существует</div>
-                    <div class='mofal_text'>Аккаунта, привязанного к указанной при входе почте не существует. Проверьте,
-                        правильно ли Вы ввели почту или зарегест рируйте новый аккаунт.</div>
-                    <div class="btn_wrapper">
-                        <a href="#" class='btn'>Регистрация</a>
-                        <div class='btn btn_opacity' data-modal-close>Проверить и войти еще раз</div>
+        </section>
+    </main>
+    <footer class='footer'>
+        <div class='container'>
+            <nav class="menu_wrapper">
+                <ul class="menu">
+                    <li><a href="/" class='active'>Главная</a></li>
+                    <li><a href="autopart.html">Запчасти</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="">Статьи</a></li>
+                    <li><a href="">О нас</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class='footer_block'>
+                <div class='footer_block_item'>
+                    <div class='footer_block_item_title'>Позвонить</div>
+                    <div class='footer_block_item_text'>
+                        <a href="#">8 800 300 46 46</a>
                     </div>
                 </div>
+                <div class='footer_block_item'>
+                    <div class='footer_block_item_title'>Написать </div>
+                    <div class='footer_block_item_text'>
+                        <a href="#">info@bg98.ru</a>
+                    </div>
+                </div>
+                <div class='footer_block_item'>
+                    <div class='footer_block_item_title'>Адрес</div>
+                    <div class='footer_block_item_text'>Санкт-Петербург Московское шоссе дом 13-Д<br>
+                        <b> Рабочее время:</b>
+                        Пн–Пт 09:00–18:00
+                    </div>
+                </div>
+                <div class='footer_block_item'>
+                    <div class='footer_block_item_title'>Отдел продаж техники:</div>
+                    <div class='footer_block_item_text'>
+                        <a href="tel:+78124545507">+7 (812) 454-55-07</a>
+                        <a href="tel:+79219574845">+7 (921) 957-48-45</a>
+                    </div>
+                </div>
+                <div class='footer_block_item'>
+                    <div class='footer_block_item_title'>Отдел запчастей:</div>
+                    <div class='footer_block_item_text'>
+                        <a href="tel:+78123090997">+7 812 309-09-97</a>
+                        <a href="tel:+79219450888">+7 921 945-0-888</a>
+                    </div>
+                </div>
+
             </div>
+            <div class='footer_logo'><img src="imgs/footer_logo.png" alt=""></div>
+            <div class='footer_text'>Продажа китайских самосвалов, спецтехники, строительной техники, тягачей, бетонных
+                заводов, др. об-я производства Китая.</div>
+            <div class='footer_copywriting'>2012-2023©</div>
         </div>
-        <div class="modal_bg"></div>
-    </div>
+    </footer>
+
 
     <script src="vendors/jquery/jquery-3.5.1.min.js"></script>
     <script src="vendors/swiper/swiper-bundle.min.js"></script>
     <script src="vendors/fancybox/jquery.fancybox.min.js"></script>
     <script src="vendors/imask/imask.js"></script>
     <script src="vendors/masonry/masonry.pkgd.min.js"></script>
-    <script src="js/common.js?14"></script>
+    <script src="js/common.js?12"></script>
 </body>
 
 </html>
