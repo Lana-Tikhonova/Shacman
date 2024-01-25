@@ -281,11 +281,13 @@ $(document).ready(function () {
                     validEmailFunc(userEmail);
                 }
                 if (userPassword) {
-                    if (confirmPassword.value !== password.value) {
-                        confirmPassword.closest('.form_input_group').classList.add('error');
-                        confirmPassword.nextElementSibling.innerHTML = 'Пароли не совпадают';
-                    } else {
-                        confirmPassword.closest('.form_input_group').classList.remove('error');
+                    if (confirmPassword) {
+                        if (confirmPassword.value !== password.value) {
+                            confirmPassword.closest('.form_input_group').classList.add('error');
+                            confirmPassword.nextElementSibling.innerHTML = 'Пароли не совпадают';
+                        } else {
+                            confirmPassword.closest('.form_input_group').classList.remove('error');
+                        }
                     }
                     for (let i = 0; i < userPassword.length; i++) {
                         if (userPassword[i].value.trim().length < 3) {

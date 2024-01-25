@@ -5419,6 +5419,15 @@ span.breadcrumb_link {
 	z-index: 1;
 	width: 100%;
 
+	.form_input {
+		padding: 17px 29px;
+		height: 54px;
+		border-radius: 10px;
+		border-color: #CDCDCD;
+		background: #F9F9FB;
+		font-size: 16px;
+	}
+
 	.form_input_group {
 		margin-bottom: 24px;
 	}
@@ -5460,12 +5469,8 @@ span.breadcrumb_link {
 @media screen and (max-width:576px) {
 	.auth_block {
 		padding: 40px 30px;
-		;
-
 	}
 }
-
-.form_input_wrapper_email {}
 
 .form_input_row {
 	display: flex;
@@ -5521,6 +5526,7 @@ span.breadcrumb_link {
 		max-width: 430px;
 		margin-left: auto;
 		margin-right: auto;
+		font-size: 16px;
 	}
 
 	.btn_wrapper {
