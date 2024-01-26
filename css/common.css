@@ -5168,6 +5168,11 @@ input[type=radio]:checked {
   font-size: 16px;
   height: 54px;
 }
+.form_input_secondary:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #707070;
+}
 
 @media screen and (max-width: 576px) {
   .form_input_secondary {
@@ -5428,6 +5433,11 @@ input[type=radio]:checked {
     font-size: 20px;
   }
 }
+@media screen and (max-width: 1300px) {
+  .basket_info {
+    top: 40px;
+  }
+}
 @media screen and (max-width: 1150px) {
   .basket_block {
     flex-direction: column;
@@ -5615,15 +5625,15 @@ input[type=radio]:checked {
   font-weight: 700;
 }
 
-.delivery_block .form_input_row {
+.recipient_block .form_input_row {
   -moz-column-gap: 32px;
        column-gap: 32px;
 }
-.delivery_block .form_input_col_6 {
+.recipient_block .form_input_col_6 {
   width: calc(50% - 16px);
   margin-bottom: 0;
 }
-.delivery_block .form_input_group {
+.recipient_block .form_input_group {
   margin-bottom: 16px;
 }
 
@@ -5638,12 +5648,136 @@ input[type=radio]:checked {
   .pay_item_title {
     font-size: 27px;
   }
+  .pay_item {
+    margin-bottom: 32px;
+  }
 }
 @media screen and (max-width: 576px) {
-  .delivery_block .form_input_row {
+  .recipient_block .form_input_row {
     flex-direction: column;
   }
-  .delivery_block .form_input_col_6 {
+  .recipient_block .form_input_col_6 {
     width: 100%;
   }
+}
+.recipient_type {
+  margin-bottom: 24px;
+}
+
+.delivery_type {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.delivery_type .checkbox_wrapper {
+  padding: 22px;
+  border-radius: 8px;
+  background: #FFF;
+  box-shadow: 0px 4px 23.8px 0px rgba(0, 0, 0, 0.1);
+  gap: 0;
+  width: 260px;
+  justify-content: center;
+  margin-bottom: 0;
+}
+.delivery_type input {
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.delivery_type input:checked ~ span {
+  color: #FFC02D;
+  font-weight: 700;
+}
+
+.delivery_type_text {
+  max-width: 455px;
+}
+
+.delivery_type_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.payment_type {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.payment_type .checkbox_wrapper {
+  padding: 8px 16px 8px 0;
+  border-radius: 8px;
+  background: #FFF;
+  box-shadow: 0px 4px 23.8px 0px rgba(0, 0, 0, 0.1);
+  gap: 0;
+  width: 270px;
+  justify-content: center;
+  margin-bottom: 0;
+}
+.payment_type .checkbox_wrapper.active {
+  width: calc(100% - 270px - 16px);
+}
+.payment_type .checkbox_wrapper span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.payment_type .checkbox_wrapper span svg {
+  fill: #444444;
+}
+.payment_type input {
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.payment_type input:checked ~ span {
+  color: #FFC02D;
+  font-weight: 700;
+}
+.payment_type input:checked ~ span svg {
+  fill: #FFC02D;
+}
+
+.payment_block {
+  width: calc(100% - 270px - 16px);
+}
+.payment_block[data-type=type1] .payment_block_item {
+  padding: 24px 32px;
+}
+.payment_block[data-type=type2] .payment_block_item {
+  padding: 16px 24px;
+}
+
+.payment_block_item {
+  border-radius: 16px;
+  background: #FFF;
+  box-shadow: 0px 4px 23.8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.card-js .icon {
+  display: none;
+}
+.card-js input {
+  border-radius: 10px;
+  border: 1px solid #CDCDCD;
+  background: #F9F9FB;
+  box-shadow: none;
+  padding: 17px 24px;
+  padding-left: 24px !important;
+  font-size: 16px;
+  height: 54px;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+}
+.card-js input::-moz-placeholder {
+  color: rgba(68, 68, 68, 0.53);
+}
+.card-js input::placeholder {
+  color: rgba(68, 68, 68, 0.53);
+}
+.card-js input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #707070;
 }

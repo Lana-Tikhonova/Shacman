@@ -51,15 +51,22 @@ const calculator = () => {
 }
 
 $(document).ready(function () {
-    $('input[name=delivery_type]').on('change', function () {
+    $('input[name=recipient_type]').on('change', function () {
         let typeInput = $(this).val();
-        console.log(typeInput);
         if (typeInput == 'type2') {
-            $('.delivery_block').find('.form_input').prop('disabled', false);
+            $('.recipient_block').find('.form_input').prop('disabled', false);
         } else {
-            $('.delivery_block').find('.form_input').prop('disabled', true);
+            $('.recipient_block').find('.form_input').prop('disabled', true);
 
         }
+    });
+    $('input[name=payment_type]').on('change', function () {
+        let typeInput = $(this).val();
+        console.log(    $('.payment_block_wrapper').find(`[data-type='${typeInput}']`),$('.payment_block_wrapper'));
+        $('.payment_block_wrapper').hide();
+        $('.payment_block_wrapper').find(`[data-type='${typeInput}']`).show();
+        $('.payment_type .checkbox_wrapper').removeClass('active');
+        $(this).parent().addClass('active');
     });
 
     if ($(window).width() <= 768) {
