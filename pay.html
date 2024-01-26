@@ -8,7 +8,7 @@
     <meta name="description"
         content="Сделайте покупку техники Shacman доступной вместе с официальным дилером Большегруз. Качественные самосвалы, тягачи в наличии." />
     <meta name="keywords" content="" />
-    <title>Личный кабинет</title>
+    <title>Оформление заказа</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- шрифты -->
     <link rel="preload" href="fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -121,85 +121,177 @@
                     <span class='breadcrumb_pipe'>→</span>
                 </li>
                 <li class='breadcrumb_item'>
-                    <span class='breadcrumb_link'>Личный кабинет</span>
+                    <span class='breadcrumb_link'>Оформление заказа</span>
                 </li>
             </ul>
         </div>
         <section class='section'>
             <div class='container'>
-                <h1>Личный кабинет</h1>
-                <!-- такой же блок как и в lk2.html, отличется только классом у lk_block, 
-                        если текущие заказы, то - lk_block_current
-                        если история заказов, то - lk_block_history
-                        если настройки, то - lk_block_settings
-                        От этого зависит ширина столбцов
-                        атк же класс lk_block_settings нужен в js для перемещения блока lk_orders_info заблок с настройками на телефоне
-                     -->
-                <div class='lk_block lk_block_settings'>
-                    <div class='lk_block_left'>
-                        <div class='user_info lk_block_item'>
-                            <div class='user_info_img'></div>
-                            <div class='user_info_block'>
-                                <div class='user_info_name'>Иван Иванов Иванович</div>
-                                <div class='user_info_text'>mail@mail.com</div>
-                                <a href="lk3.html" class='btn'>Изменить личные данные</a>
-                            </div>
-                            <a href="#" class='btn_exit'>
-                                <svg width="44" height="44" viewBox="0 0 44 44" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M12.0642 27.8831V16.2242C12.0642 14.4204 12.7808 12.6905 14.0562 11.4151C15.3317 10.1397 17.0615 9.42313 18.8653 9.42313H24.6947V7.47998H18.8653C16.5462 7.47998 14.3221 8.40124 12.6822 10.0411C11.0424 11.6809 10.1211 13.9051 10.1211 16.2242L10.1211 27.8831C10.1211 30.2022 11.0424 32.4263 12.6822 34.0662C14.3221 35.706 16.5462 36.6273 18.8653 36.6273H24.6947V34.6841H18.8653C17.0615 34.6841 15.3317 33.9676 14.0562 32.6921C12.7808 31.4167 12.0642 29.6868 12.0642 27.8831Z"
-                                        fill="#FF4433" />
-                                    <path
-                                        d="M33.0129 21.2371L27.1835 17.3508C27.0365 17.2514 26.8652 17.1942 26.6881 17.1853C26.511 17.1764 26.3348 17.2161 26.1787 17.3002C26.0225 17.3843 25.8924 17.5095 25.8023 17.6623C25.7123 17.815 25.6658 17.9896 25.6678 18.1669V21.0816H14.9805V23.0248H25.6678V25.9395C25.6658 26.1168 25.7123 26.2913 25.8023 26.4441C25.8924 26.5969 26.0225 26.7221 26.1787 26.8062C26.3348 26.8902 26.511 26.93 26.6881 26.9211C26.8652 26.9122 27.0365 26.8549 27.1835 26.7556L33.0129 22.8693C33.1452 22.7804 33.2535 22.6604 33.3285 22.5198C33.4034 22.3791 33.4426 22.2222 33.4426 22.0629C33.4426 21.9036 33.4034 21.7467 33.3285 21.606C33.2535 21.4654 33.1452 21.3454 33.0129 21.2565V21.2371Z"
-                                        fill="#FF4433" />
-                                </svg>
-                                Выйти
-                            </a>
+                <div class='basket_block'>
+                    <div class='basket_block_left'>
+                        <div class='title_wrapper align-items-end'>
+                            <h1>Оформление заказа</h1>
                         </div>
-                        <ul class='lk_orders_info lk_block_item'>
-                            <li><a href="lk.html">Текущие заказы (2)</a></li>
-                            <li><a href="lk2.html" class=''>История заказов</a></li>
-                        </ul>
-                    </div>
-                    <div class='lk_block_right lk_block_item'>
                         <form method="post" class="validate_form">
-                            <div class='form_input_row'>
-                                <div class='form_input_col_6'>
-                                    <label class="form_input_group">
-                                        <span class="form_input_wrapper">
-                                            <input type="text" name="name" placeholder="Имя"
-                                                class="form_input form_input_secondary" value="Иван">
-                                            <span class="text_error">Заполните поле</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class='form_input_col_6'>
-                                    <label class="form_input_group">
-                                        <span class="form_input_wrapper">
-                                            <input type="text" name="lastName" placeholder="Фамилия"
-                                                class="form_input form_input_secondary" value="Иванов">
-                                            <span class="text_error">Заполните поле</span>
-                                        </span>
-                                    </label>
+                            <div class='pay_item'>
+                                <div class='pay_toggle'>
+                                    <div class='pay_toggle_btn'>
+                                        <span>8 товаров</span>
+                                        <span>на</span>
+                                        <b>5 000 ₽</b>
+                                    </div>
+                                    <div class='pay_toggle_block'>
+                                        <div class='basket_product_list'>
+                                            <div class='basket_product_item'>
+                                                <div class='basket_product_item_left'>
+                                                    <div class='image'>
+                                                        <img src="imgs/basket_img.jpeg" alt="">
+                                                    </div>
+                                                    <div>
+                                                        <div class='basket_product_item_head'>
+                                                            <div class='name'>Амортизатор капота SHACMAN F2000</div>
+                                                            <div class="article">81.74821.0095</div>
+                                                        </div>
+                                                        <ul class='basket_product_item_list'>
+                                                            <li><b>Характеристика 1:</b> значение1</li>
+                                                            <li><b>Характеристика 1:</b> значение1</li>
+                                                            <li><b>Характеристика 1:</b> значение1</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class='basket_product_item_right'>
+                                                    <div class='basket_product_item_right_top'>
+                                                        <span class='availability exist'>Есть в наличии</span>
+                                                        <!-- если нет в наличии то спан нижний -->
+                                                        <!-- <span class='availability not_exist'>Нет в наличии</span> -->
+                                                        <div class='price'>290 ₽</div>
+                                                    </div>
+                                                    <div class='basket_product_item_right_bottom'>
+                                                        <div class='total_count'>3 шт.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class='basket_product_item'>
+                                                <div class='basket_product_item_left'>
+                                                    <div class='image'>
+                                                        <img src="imgs/basket_img.jpeg" alt="">
+                                                    </div>
+                                                    <div>
+                                                        <div class='basket_product_item_head'>
+                                                            <div class='name'>Амортизатор капота SHACMAN F2000</div>
+                                                            <div class="article">81.74821.0095</div>
+                                                        </div>
+                                                        <ul class='basket_product_item_list'>
+                                                            <li><b>Характеристика 1:</b> значение1</li>
+                                                            <li><b>Характеристика 1:</b> значение1</li>
+                                                            <li><b>Характеристика 1:</b> значение1</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class='basket_product_item_right'>
+                                                    <div class='basket_product_item_right_top'>
+                                                        <span class='availability exist'>Есть в наличии</span>
+                                                        <!-- если нет в наличии то спан нижний -->
+                                                        <!-- <span class='availability not_exist'>Нет в наличии</span> -->
+                                                        <div class='price'>390 ₽</div>
+                                                    </div>
+                                                    <div class='basket_product_item_right_bottom'>
+                                                        <div class='total_count'>3 шт.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <label class="form_input_group">
-                                <span class="form_input_wrapper">
-                                    <input type="text" name="middleName" placeholder="Отчество"
-                                        class="form_input form_input_secondary" value="Иванович">
-                                    <span class="text_error">Заполните поле</span>
-                                </span>
-                            </label>
-                            <label class="form_input_group">
-                                <span class="form_input_wrapper">
-                                    <input type="email" name="email" placeholder="E-mail"
-                                        class="form_input form_input_secondary" value="mail@mail.com" disabled>
-                                    <span class="text_error">Заполните поле</span>
-                                </span>
-                            </label>
-                            <button class='btn'>Сохранить изменения</button>
+                            <div class='pay_item'>
+                                <div class='pay_item_title'>Получатель</div>
+                                <label class='checkbox_wrapper'><input type="radio" checked name="delivery_type"
+                                        value="type1"><span>Авторизованный
+                                        получатель</span></label>
+                                <label class='checkbox_wrapper'><input type="radio" name="delivery_type"
+                                        value="type2"><span>Другой
+                                        получатель</span></label>
+                                <div class='delivery_block'>
+                                    <div class='form_input_row'>
+                                        <div class='form_input_col_6'>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" name="name" placeholder="Имя"
+                                                        class="form_input form_input_secondary" disabled>
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" name="lastName" placeholder="Фамилия"
+                                                        class="form_input form_input_secondary" disabled>
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" name="middleName" placeholder="Отчество"
+                                                        class="form_input form_input_secondary" disabled>
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <div class='form_input_col_6'>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="tel" name="tel" placeholder="Телефон"
+                                                        class="form_input form_input_secondary" disabled>
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="email" name="email" placeholder="E-mail"
+                                                        class="form_input form_input_secondary" disabled>
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='pay_item'>
+                                <div class='pay_item_title'>Доставка </div>
+                            </div>
+                            <div class='pay_item'>
+                                <div class='pay_item_title'>Оплата </div>
+                                <div class='pay_item_subtitle'>Выберите удобный способ оплаты: </div>
+                            </div>
                         </form>
+
+                    </div>
+                    <div class='basket_block_right'>
+                        <!-- В корзине есть доп класс basket_info_order у basket_info,здесь его нет-->
+                        <div class="basket_info">
+                            <div class='basket_info_title'>Возникли проблемы
+                                при формлении заказа?</div>
+                            <div class='basket_info_text'>Свяжитесь с нами — поможем! Закажите звонок или позвоните
+                                самостоятельно прямо сейчас.</div>
+                            <form method="post" class="basket_form validate_form">
+                                <label class="form_input_group">
+                                    <span class="form_input_wrapper">
+                                        <input type="text" name="name" placeholder="Как к Вам обращаться?"
+                                            class="form_input form_input_secondary">
+                                        <span class="text_error">Заполните поле</span>
+                                    </span>
+                                </label>
+                                <label class="form_input_group">
+                                    <span class="form_input_wrapper">
+                                        <input type="tel" name="tel" placeholder="Ваш телефон"
+                                            class="form_input form_input_secondary">
+                                        <span class="text_error">Заполните поле</span>
+                                    </span>
+                                </label>
+                                <button class="btn" type="submit">Заказать звонок</button>
+                            </form>
+                            <a href="#" class='btn btn_opacity'>Позвонить самостоятельно</a>
+                        </div>
                     </div>
                 </div>
             </div>

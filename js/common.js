@@ -51,6 +51,17 @@ const calculator = () => {
 }
 
 $(document).ready(function () {
+    $('input[name=delivery_type]').on('change', function () {
+        let typeInput = $(this).val();
+        console.log(typeInput);
+        if (typeInput == 'type2') {
+            $('.delivery_block').find('.form_input').prop('disabled', false);
+        } else {
+            $('.delivery_block').find('.form_input').prop('disabled', true);
+
+        }
+    });
+
     if ($(window).width() <= 768) {
 
         function basketBtnMobileHide() {
@@ -70,6 +81,10 @@ $(document).ready(function () {
         }
         basketBtnMobileHide()
     }
+    $('.pay_toggle_btn').on('click', function (e) {
+        $(this).next().slideToggle();
+        $(this).toggleClass('active');
+    })
 
     $('.lk_block_list').each(function (e) {
         let orderItem = $(this).find('li');
@@ -475,7 +490,7 @@ $(document).ready(function () {
         let selectedModal;
         if (target.closest('[data-open-modal]')) {
             e.preventDefault();
-            // document.querySelector(".modal_body").innerHTML = "";
+            document.querySelector(".modal_body").innerHTML = "";
             switch (target.dataset.type) {
                 case 'order':
 
@@ -517,8 +532,8 @@ $(document).ready(function () {
 
 
 
-                    // result = await response.text();
-                    // document.querySelector(".modal_body").innerHTML = result;
+                    result = await response.text();
+                    document.querySelector(".modal_body").innerHTML = result;
 
                     targetId = target.closest('[data-open-modal]').dataset.openModal;
                     selectedModal = document.querySelector(`[data-modal="${targetId}"]`);
