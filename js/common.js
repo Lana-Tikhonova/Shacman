@@ -51,6 +51,26 @@ const calculator = () => {
 }
 
 $(document).ready(function () {
+    if ($(window).width() <= 768) {
+
+        function basketBtnMobileHide() {
+            $(window).scroll(function () {
+                var wt = $(window).scrollTop();
+                var wh = $(window).height();
+                var et = $('.basket_block_right').offset().top;
+                var eh = $('.basket_block_right').outerHeight();
+                var dh = $(document).height();
+                if (wt + wh >= et || wh + wt == dh || eh + et < wh) {
+                    $('.mobile_basket_btn_wrapper').removeClass('show')
+                } else {
+                    $('.mobile_basket_btn_wrapper').addClass('show')
+
+                }
+            });
+        }
+        basketBtnMobileHide()
+    }
+
     $('.lk_block_list').each(function (e) {
         let orderItem = $(this).find('li');
         let orderItemToggle = $(this).parent().find('.all_btn');
