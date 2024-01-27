@@ -269,10 +269,25 @@
                                                 value="type2"><span>СДЭК</span></label>
                                     </div>
                                     <div class='delivery_type_text'>Мы свяжемся с Вами по указанному в блоке
-                                        «Получатель» номеру телефона, когда заказ будет готов к выдаче.</div>
+                                        «Получатель» номеру телефона, когда заказ будет готов к выдаче.</div>
                                 </div>
                                 <div class='pay_item_subtitle'>Выберите адрес доставки:</div>
-                                <div class='delivery_address'></div>
+                                <div class='pay_item_delivery'>
+                                    <div class='pay_item_select_wrapper'>
+                                        <div class="pay_item_select">
+                                            <span class="pay_item_select_name">*Адрес (город, улица, дом и т.д.)*</span>
+                                            <ul class="pay_item_select_dropdown">
+                                                <li>Адрес 1</li>
+                                                <li>Адрес 2</li>
+                                                <li>Адрес 235</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <ul class='pay_item_delivery_list'>
+                                        <li><b>Срок доставки:</b> 3-4 дня</li>
+                                        <li><b>Стоимость доставки:</b> 0 ₽</li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class='pay_item'>
                                 <div class='pay_item_title'>Оплата </div>
@@ -329,11 +344,12 @@
                                 <div class='payment_block_wrapper'>
                                     <div class='payment_block' data-type="type1">
                                         <!-- Использую плагин https://github.com/CardJs/CardJs, в js ничего не инициальзирую, работает по классу card-js -->
+                                        <!-- в js добавляю к инпутам  required-->
                                         <div class='payment_block_item card-js'>
                                             <label class="form_input_group">
                                                 <span class="form_input_wrapper">
                                                     <input class="card-number" placeholder="Номер карты"
-                                                        name="card-number">
+                                                        name="card-number" >
                                                     <span class="text_error">Заполните поле</span>
                                                 </span>
                                             </label>
@@ -360,8 +376,105 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class='payment_block' data-type="type2"></div>
+                                    <div class='payment_block' data-type="type2" style="display: none;">
+                                        <div class='payment_block_item'>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" class="form_input form_input_secondary"
+                                                        placeholder="Плательщик" name="payer">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" class="form_input form_input_secondary"
+                                                        placeholder="Адрес (индекс, город улица, дом (через запятую))"
+                                                        name="address">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" class="form_input form_input_secondary"
+                                                        placeholder="Физический адрес  (индекс, город улица, дом (через запятую))"
+                                                        name="address_two">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="email" name="email" placeholder="E-mail"
+                                                        class="form_input form_input_secondary">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                        </div>
+
+                                        <div class='payment_block_item'>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" class="form_input form_input_secondary"
+                                                        placeholder="Рассчетный счет" name="payment_account">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" class="form_input form_input_secondary"
+                                                        placeholder="Кор. счет" name="correspondent_account">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" class="form_input form_input_secondary"
+                                                        placeholder="Банк" name="bank">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" class="form_input form_input_secondary"
+                                                        placeholder="ИНН" name="inn">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" class="form_input form_input_secondary"
+                                                        placeholder="КПП (оставьте поле пустым, если вы ИП или КПП остутствует)"
+                                                        name="kpp">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                            <label class="form_input_group">
+                                                <span class="form_input_wrapper">
+                                                    <input type="text" class="form_input form_input_secondary"
+                                                        placeholder="БИК" name="bic">
+                                                    <span class="text_error">Заполните поле</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class='total_section'>
+                                <div class='total_section_title'>Итого:</div>
+                                <div class='total_block'>
+                                    <ul class='total_block_list'>
+                                        <li><span>Получатель:</span><span>Иванов Иван Иванович</span></li>
+                                        <li><span>Контактный телефон:</span><span>+7 (800) 555-35-35</span></li>
+                                        <li><span>Почта для связи:</span><span>mail@gmail.com</span></li>
+                                        <li><span>Оплата:</span><span>Банковская карта **** **** **** 3456</span></li>
+                                        <li><span>Доставка:</span><span>Самовывоз (Россия, г. Энгельс, Октябрьская ул.,
+                                                д. 21 кв.25)</span></li>
+                                    </ul>
+                                    <div class='total_block_info'>
+                                        <div class='price'>5 000 ₽</div>
+                                        <div class='quantity'>5 товаров</div>
+                                    </div>
+                                </div>
+                                <button type="submit" class='btn'>Оформить заказ</button>
                             </div>
                         </form>
 

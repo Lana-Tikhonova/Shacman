@@ -51,24 +51,6 @@ const calculator = () => {
 }
 
 $(document).ready(function () {
-    $('input[name=recipient_type]').on('change', function () {
-        let typeInput = $(this).val();
-        if (typeInput == 'type2') {
-            $('.recipient_block').find('.form_input').prop('disabled', false);
-        } else {
-            $('.recipient_block').find('.form_input').prop('disabled', true);
-
-        }
-    });
-    $('input[name=payment_type]').on('change', function () {
-        let typeInput = $(this).val();
-        console.log(    $('.payment_block_wrapper').find(`[data-type='${typeInput}']`),$('.payment_block_wrapper'));
-        $('.payment_block_wrapper').hide();
-        $('.payment_block_wrapper').find(`[data-type='${typeInput}']`).show();
-        $('.payment_type .checkbox_wrapper').removeClass('active');
-        $(this).parent().addClass('active');
-    });
-
     if ($(window).width() <= 768) {
 
         function basketBtnMobileHide() {
@@ -300,6 +282,47 @@ $(document).ready(function () {
         fixMenu();
     });
 
+    $('input[name=recipient_type]').on('change', function () {
+        let typeInput = $(this).val();
+        if (typeInput == 'type2') {
+            $('.recipient_block').find('.form_input').prop('disabled', false);
+        } else {
+            $('.recipient_block').find('.form_input').prop('disabled', true);
+            $('.recipient_block').find('.form_input_group').removeClass('error');
+        }
+    });
+
+    $('input[name=payment_type]').on('change', function () {
+        let typeInput = $(this).val();
+        // скрываем блок
+        $('.payment_block_wrapper .payment_block').hide();
+        // добавляем disabled к инпутам в этом блоке
+        $('.payment_block_wrapper .payment_block').find('.form_input').prop('disabled', true);
+        // удаляем класс error у инпутов в это блоке
+        $('.payment_block_wrapper .payment_block').find('.form_input_group').removeClass('error');
+
+        // показываем  блок
+        $('.payment_block_wrapper').find(`[data-type='${typeInput}']`).show();
+        // удаляем disabled у инпутов в этом блоке
+        $('.payment_block_wrapper').find(`[data-type='${typeInput}']`).find('.form_input').prop('disabled', false);
+        $('.payment_type .checkbox_wrapper').removeClass('active');
+        $(this).parent().addClass('active');
+    });
+
+    // чтобы иконкагалочки перекрашивалась
+    $('.payment_block[data-type="type2"] .form_input').on('keyup', function () {
+        let parent = $(this).closest('.payment_block_item');
+        let val = parent.find('.form_input')[0].value
+        console.log(parent.find('.form_input'), val);
+        if (parent.find('.form_input_group').hasClass('error')) {
+            parent.removeClass('done')
+        } else {
+            parent.addClass('done')
+        }
+
+    });
+
+
     const form = () => {
         // маскадля телефона
         const phoneInputs = document.querySelectorAll('.form_input[name="tel"]');
@@ -314,7 +337,7 @@ $(document).ready(function () {
             const inputText = form.querySelectorAll('.form_input[type="text"]');
             const userName = form.querySelector('.form_input[name="name"]');
             const userPhone = form.querySelector('.form_input[name="tel"]');
-            const userEmail = form.querySelector('.form_input[name="email"]');
+            const userEmail = form.querySelectorAll('.form_input[name="email"]');
             const userPassword = form.querySelectorAll('.form_input[type="password"]');
             let password = form.querySelector('#password');
             let confirmPassword = form.querySelector('#confirm_password');
@@ -335,7 +358,9 @@ $(document).ready(function () {
                 textArea.addEventListener('input', removeErr);
             }
             if (userEmail) {
-                userEmail.addEventListener('input', removeErr);
+                for (let i = 0; i < userEmail.length; i++) {
+                    userEmail[i].addEventListener('input', removeErr);
+                }
             }
             if (userPassword) {
                 for (let i = 0; i < userPassword.length; i++) {
@@ -348,12 +373,14 @@ $(document).ready(function () {
                 e.preventDefault();
                 if (inputText) {
                     for (let i = 0; i < inputText.length; i++) {
-                        if (inputText[i].value.trim().length < 1) {
-                            inputText[i].closest('.form_input_group').classList.add('error');
+                        if (!inputText[i].hasAttribute("disabled")) {
+                            if (inputText[i].value.trim().length < 1) {
+                                inputText[i].closest('.form_input_group').classList.add('error');
+                            }
                         }
                     }
                 }
-                if (userName) {
+                if (userName && !userName.hasAttribute("disabled")) {
                     if (userName.value.trim().length < 1) {
                         userName.closest('.form_input_group').classList.add('error');
                     }
@@ -363,13 +390,17 @@ $(document).ready(function () {
                         textArea.closest('.form_input_group').classList.add('error');
                     }
                 }
-                if (userPhone) {
+                if (userPhone && !userPhone.hasAttribute("disabled")) {
                     if (userPhone.value.replace(/\D/g, '').length < 11) {
                         userPhone.closest('.form_input_group').classList.add('error');
                     }
                 }
                 if (userEmail) {
-                    validEmailFunc(userEmail);
+                    for (let i = 0; i < userEmail.length; i++) {
+                        if (!userEmail[i].hasAttribute("disabled")) {
+                            validEmailFunc(userEmail[i]);
+                        }
+                    }
                 }
                 if (userPassword) {
                     if (confirmPassword) {
@@ -444,7 +475,6 @@ $(document).ready(function () {
 
     // проверка валидности email
     function validEmailFunc(userEmail) {
-
         const userEmailVal = userEmail.value;
         if (userEmailVal.length < 1) {
             userEmail.closest('.form_input_group').classList.add('error');
@@ -611,6 +641,27 @@ window.onload = function () {
     }
 };
 $(document).ready(function () {
+    // $('.card-js').each(function(){
+    //     let inputs = $(this).find('input.card-number,input.cvc,input.expiry');
+    //     inputs.attr('required',true)
+    // })
+    $(document).on('click', '.pay_item_select', function () {
+        $(this).toggleClass('open')
+    });
+
+    $('.pay_item_select li').click(function () {
+        let selection = $(this).text();
+        $(this).parents('.pay_item_select').find('.pay_item_select_name').text(selection);
+        $('.pay_item_select_dropdown li').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest(".pay_item_select").length) {
+            $('.pay_item_select').removeClass('open');
+        }
+    });
+
     $(document).on('click', '.product-count', function () {
         let $btn = $(this),
             count = $btn.data('count'),
