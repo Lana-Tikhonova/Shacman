@@ -51,7 +51,9 @@ const calculator = () => {
 }
 
 $(document).ready(function () {
-    if ($(window).width() <= 768) {
+    // кнопка на мобилке в корзине
+    // видна только если нет basket_block_right в зоне видимости
+    if ($('.basket_block_right').length && $(window).width() <= 768) {
 
         function basketBtnMobileHide() {
             $(window).scroll(function () {
@@ -70,11 +72,13 @@ $(document).ready(function () {
         }
         basketBtnMobileHide()
     }
+    // скрыть/показать товары в оформлении заказа
     $('.pay_toggle_btn').on('click', function (e) {
         $(this).next().slideToggle();
         $(this).toggleClass('active');
     })
 
+    // показывать не все товары в лк
     $('.lk_block_list').each(function (e) {
         let orderItem = $(this).find('li');
         let orderItemToggle = $(this).parent().find('.all_btn');
@@ -94,6 +98,12 @@ $(document).ready(function () {
                 $(this).addClass('opacity');
             }
         }
+    });
+
+    // Показать все товары в лк при клике на Смотреть еще позиции
+    $('.all_btn').on('click', function (e) {
+        $(this).parent().find('.lk_block_list').toggleClass('active')
+        $(this).toggleClass('active')
     });
 
     //перемещение
@@ -121,10 +131,6 @@ $(document).ready(function () {
         move(block_item, block_parent, block_parentOriginal, 1300);
     });
 
-    $('.all_btn').on('click', function (e) {
-        $(this).parent().find('.lk_block_list').toggleClass('active')
-        $(this).toggleClass('active')
-    });
     //слайдер на главной
     var swiperWallet = new Swiper(".slider_block .swiper", {
         slidesPerView: "auto",
@@ -282,9 +288,10 @@ $(document).ready(function () {
         fixMenu();
     });
 
+    // в блоке Получатель добавлять/убирать disabled у инпутов
     $('input[name=recipient_type]').on('change', function () {
         let typeInput = $(this).val();
-        if (typeInput == 'type2') {
+        if (typeInput == 'not_authorized_recipient') {
             $('.recipient_block').find('.form_input').prop('disabled', false);
         } else {
             $('.recipient_block').find('.form_input').prop('disabled', true);
@@ -292,6 +299,7 @@ $(document).ready(function () {
         }
     });
 
+    // в зависимости от того, какая владка активна в блоке  Оплата, добавлять/убирать disabled или required 
     $('input[name=payment_type]').on('change', function () {
         let typeInput = $(this).val();
         // скрываем блок
@@ -307,15 +315,24 @@ $(document).ready(function () {
         $('.payment_block_wrapper').find(`[data-type='${typeInput}']`).find('.form_input').prop('disabled', false);
         $('.payment_type .checkbox_wrapper').removeClass('active');
         $(this).parent().addClass('active');
+        if ($('input[name=payment_type][value="payment_account"]').is(":checked")) {
+            cardInput(false);
+        } else {
+            cardInput(true);
+        }
     });
 
-    $('.card-js').each(function(){
-        let inputs = $(this).find('input.card-number,input.cvc,input.expiry');
-        inputs.attr('required',true)
-    })
+    function cardInput(boolean) {
+        $('.card-js').each(function () {
+            let inputs = $(this).find('input.card-number,input.cvc,input.expiry');
+            inputs.attr('required', boolean)
+        })
+    }
+
+    cardInput(true)
 
     // чтобы иконка галочки перекрашивалась
-    const paymentBlocks = document.querySelectorAll('.payment_block[data-type="type2" ] .payment_block_item');
+    const paymentBlocks = document.querySelectorAll('.payment_block[data-type="payment_account" ] .payment_block_item');
     if (paymentBlocks) {
         paymentBlocks.forEach(item => {
             const reqInputs = [...item.querySelectorAll('.form_input')];
@@ -332,7 +349,6 @@ $(document).ready(function () {
 
         })
     }
-
 
 
     const form = () => {
@@ -383,6 +399,7 @@ $(document).ready(function () {
             form.addEventListener('submit', async (e) => {
 
                 e.preventDefault();
+
                 if (inputText) {
                     for (let i = 0; i < inputText.length; i++) {
                         if (!inputText[i].hasAttribute("disabled")) {
@@ -433,15 +450,18 @@ $(document).ready(function () {
 
                 const formErrors = form.querySelector('.error');
                 if (formErrors) {
+                    $('html, body').animate({
+                        scrollTop: $('.error').offset().top - 120
+                    }, 1000);
+
                     const checkMarkBlock = form.querySelectorAll('.payment_block_item');
-                    checkMarkBlock.forEach(el=> {
+                    checkMarkBlock.forEach(el => {
                         const errorBlock = el.querySelector('.error')
                         if (el && errorBlock) {
                             el.classList.remove('done')
 
                         }
-                    })
-                   
+                    });
                     return
                 }
                 //backend ajax

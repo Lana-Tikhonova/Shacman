@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="vendors/fancybox/jquery.fancybox.min.css">
     <link rel="stylesheet" href="vendors/credit-card/card-js.min.css">
-    <link rel="stylesheet" href="css/common.css?17">
+    <link rel="stylesheet" href="css/common.css?18">
 </head>
 
 <body class=''>
@@ -209,10 +209,10 @@
                                 <div class='pay_item_title'>Получатель</div>
                                 <div class='recipient_type'>
                                     <label class='checkbox_wrapper'><input type="radio" checked name="recipient_type"
-                                            value="type1"><span>Авторизованный
+                                            value="authorized_recipient"><span>Авторизованный
                                             получатель</span></label>
                                     <label class='checkbox_wrapper'><input type="radio" name="recipient_type"
-                                            value="type2"><span>Другой
+                                            value="not_authorized_recipient"><span>Другой
                                             получатель</span></label>
                                 </div>
                                 <div class='recipient_block'>
@@ -264,9 +264,9 @@
                                 <div class='delivery_type_wrapper'>
                                     <div class='delivery_type'>
                                         <label class='checkbox_wrapper'><input type="radio" checked name="delivery_type"
-                                                value="type1"><span>Самовывоз</span></label>
+                                                value="delivery_pickup"><span>Самовывоз</span></label>
                                         <label class='checkbox_wrapper'><input type="radio" name="delivery_type"
-                                                value="type2"><span>СДЭК</span></label>
+                                                value="delivery_SDEC"><span>СДЭК</span></label>
                                     </div>
                                     <div class='delivery_type_text'>Мы свяжемся с Вами по указанному в блоке
                                         «Получатель» номеру телефона, когда заказ будет готов к выдаче.</div>
@@ -295,7 +295,7 @@
                                 <div class='payment_type'>
                                     <!-- у одного по умолчанию есть класс active-->
                                     <label class='checkbox_wrapper active'>
-                                        <input type="radio" checked name="payment_type" value="type1">
+                                        <input type="radio" checked name="payment_type" value="payment_card">
                                         <span>
                                             <svg width="73" height="73" viewBox="0 0 73 73" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -310,7 +310,7 @@
                                         </span>
                                     </label>
                                     <label class='checkbox_wrapper'>
-                                        <input type="radio" name="payment_type" value="type2">
+                                        <input type="radio" name="payment_type" value="payment_account">
                                         <span><svg width="74" height="73" viewBox="0 0 74 73" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -342,7 +342,7 @@
                                     </label>
                                 </div>
                                 <div class='payment_block_wrapper'>
-                                    <div class='payment_block' data-type="type1">
+                                    <div class='payment_block' data-type="payment_card">
                                         <!-- Использую плагин https://github.com/CardJs/CardJs, в js ничего не инициальзирую, работает по классу card-js -->
                                         <!-- в js добавляю к инпутам  required-->
                                         <div class='payment_block_item card-js'>
@@ -376,7 +376,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class='payment_block' data-type="type2" style="display: none;">
+                                    <div class='payment_block' data-type="payment_account" style="display: none;">
                                         <div class='payment_block_item'>
                                             <label class="form_input_group">
                                                 <span class="form_input_wrapper">
@@ -608,7 +608,7 @@
     <script src="vendors/imask/imask.js"></script>
     <script src="vendors/masonry/masonry.pkgd.min.js"></script>
     <script src="vendors/credit-card/card-js.min.js"></script>
-    <script src="js/common.js?14"></script>
+    <script src="js/common.js?15"></script>
 </body>
 
 </html>

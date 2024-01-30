@@ -5616,6 +5616,15 @@ input[type=radio]:checked {
   margin: -20px;
 }
 
+@media screen and (max-width: 767px) {
+  .pay_toggle_block {
+    padding: 10px;
+    margin: -10px;
+  }
+  .pay_toggle_btn {
+    margin-bottom: 24px;
+  }
+}
 .pay_item {
   margin-bottom: 64px;
 }
@@ -5751,20 +5760,20 @@ input[type=radio]:checked {
 .payment_block .form_input_group:last-child {
   margin-bottom: 0;
 }
-.payment_block[data-type=type1] .payment_block_item {
+.payment_block[data-type=payment_card] .payment_block_item {
   padding: 24px 32px;
 }
-.payment_block[data-type=type2] {
+.payment_block[data-type=payment_account] {
   margin-left: auto;
 }
-.payment_block[data-type=type2] .payment_block_item {
+.payment_block[data-type=payment_account] .payment_block_item {
   padding: 16px 24px;
   position: relative;
 }
-.payment_block[data-type=type2] .payment_block_item.done:after {
+.payment_block[data-type=payment_account] .payment_block_item.done:after {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='44' height='44' viewBox='0 0 44 44' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='22' cy='22' r='22' fill='%2341C556'/%3e%3cpath d='M31.0818 13L18.6258 25.456L12.5105 20.7246L10 23.9861L17.553 29.8225L18.9799 30.9276L20.2673 29.6401L34 15.9075L31.0818 13Z' fill='%23FEFEFE'/%3e%3c/svg%3e ");
 }
-.payment_block[data-type=type2] .payment_block_item:after {
+.payment_block[data-type=payment_account] .payment_block_item:after {
   content: "";
   display: block;
   position: absolute;
@@ -5964,19 +5973,19 @@ input[type=radio]:checked {
   .total_section_title {
     font-size: 27px;
   }
-  .payment_block[data-type=type1] {
+  .payment_block[data-type=payment_card] {
     width: 100%;
   }
-  .payment_block[data-type=type1] .payment_block_item {
+  .payment_block[data-type=payment_card] .payment_block_item {
     padding: 16px;
   }
-  .payment_block[data-type=type2] {
+  .payment_block[data-type=payment_account] {
     width: calc(100% - 50px);
   }
-  .payment_block[data-type=type2] .payment_block_item {
+  .payment_block[data-type=payment_account] .payment_block_item {
     padding: 16px;
   }
-  .payment_block[data-type=type2] .payment_block_item:after {
+  .payment_block[data-type=payment_account] .payment_block_item:after {
     left: -56px;
   }
   .payment_block_wrapper {

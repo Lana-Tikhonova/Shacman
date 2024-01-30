@@ -6674,6 +6674,17 @@ input[type="radio"] {
 	margin: -20px;
 }
 
+@media screen and (max-width:767px) {
+	.pay_toggle_block {
+		padding: 10px;
+		margin: -10px;
+	}
+
+	.pay_toggle_btn {
+		margin-bottom: 24px;
+	}
+}
+
 .pay_item {
 	margin-bottom: 64px;
 }
@@ -6833,13 +6844,13 @@ input[type="radio"] {
 		margin-bottom: 0;
 	}
 
-	&[data-type="type1"] {
+	&[data-type="payment_card"] {
 		.payment_block_item {
 			padding: 24px 32px;
 		}
 	}
 
-	&[data-type="type2"] {
+	&[data-type="payment_account"] {
 		margin-left: auto;
 
 		.payment_block_item {
@@ -7109,7 +7120,7 @@ input[type="radio"] {
 	}
 
 	.payment_block {
-		&[data-type=type1] {
+		&[data-type="payment_card"] {
 			width: 100%;
 
 			.payment_block_item {
@@ -7117,7 +7128,7 @@ input[type="radio"] {
 			}
 		}
 
-		&[data-type=type2] {
+		&[data-type="payment_account"] {
 			width: calc(100% - 50px);
 
 			.payment_block_item {
