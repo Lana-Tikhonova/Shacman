@@ -6040,6 +6040,9 @@ input[type=radio]:checked {
     background-size: 60%;
     background-position: center 10px;
   }
+  .pay_item_select_wrapper {
+    width: 100%;
+  }
   .pay_item_select_name {
     font-size: 14px;
   }

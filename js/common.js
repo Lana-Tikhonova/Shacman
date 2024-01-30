@@ -309,18 +309,30 @@ $(document).ready(function () {
         $(this).parent().addClass('active');
     });
 
-    // чтобы иконкагалочки перекрашивалась
-    $('.payment_block[data-type="type2"] .form_input').on('keyup', function () {
-        let parent = $(this).closest('.payment_block_item');
-        let val = parent.find('.form_input')[0].value
-        console.log(parent.find('.form_input'), val);
-        if (parent.find('.form_input_group').hasClass('error')) {
-            parent.removeClass('done')
-        } else {
-            parent.addClass('done')
-        }
+    $('.card-js').each(function(){
+        let inputs = $(this).find('input.card-number,input.cvc,input.expiry');
+        inputs.attr('required',true)
+    })
 
-    });
+    // чтобы иконка галочки перекрашивалась
+    const paymentBlocks = document.querySelectorAll('.payment_block[data-type="type2" ] .payment_block_item');
+    if (paymentBlocks) {
+        paymentBlocks.forEach(item => {
+            const reqInputs = [...item.querySelectorAll('.form_input')];
+            if (reqInputs.length > 0) {
+                reqInputs.forEach(input => {
+                    input.addEventListener('input', (e) => {
+                        const iconDisplayCondition = reqInputs.every(el => {
+                            return el.value.trim().length > 0
+                        });
+                        iconDisplayCondition ? item.classList.add('done') : item.classList.remove('done')
+                    })
+                })
+            }
+
+        })
+    }
+
 
 
     const form = () => {
@@ -420,7 +432,18 @@ $(document).ready(function () {
                 }
 
                 const formErrors = form.querySelector('.error');
-                if (formErrors) return;
+                if (formErrors) {
+                    const checkMarkBlock = form.querySelectorAll('.payment_block_item');
+                    checkMarkBlock.forEach(el=> {
+                        const errorBlock = el.querySelector('.error')
+                        if (el && errorBlock) {
+                            el.classList.remove('done')
+
+                        }
+                    })
+                   
+                    return
+                }
                 //backend ajax
                 //send-email
                 let response = await fetch('/api/send-calculator', {
@@ -641,10 +664,6 @@ window.onload = function () {
     }
 };
 $(document).ready(function () {
-    // $('.card-js').each(function(){
-    //     let inputs = $(this).find('input.card-number,input.cvc,input.expiry');
-    //     inputs.attr('required',true)
-    // })
     $(document).on('click', '.pay_item_select', function () {
         $(this).toggleClass('open')
     });

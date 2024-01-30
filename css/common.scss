@@ -7031,7 +7031,7 @@ input[type="radio"] {
 		&:after {
 			transform: rotate(0);
 		}
-		
+
 	}
 
 	&:after {
@@ -7204,6 +7204,10 @@ input[type="radio"] {
 			background-size: 60%;
 			background-position: center 10px;
 		}
+	}
+
+	.pay_item_select_wrapper {
+		width: 100%;
 	}
 
 	.pay_item_select_name {
