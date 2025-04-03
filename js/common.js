@@ -806,4 +806,16 @@ $(document).ready(function () {
         // },
     });
 
+    // new
+
+    var serviceSlider = new Swiper(".service_slider", {
+        slidesPerView: "auto",
+        spaceBetween: 0,
+        watchSlidesProgress: true,
+        mousewheelControl: true,
+        watchOverflow: true,
+        watchSlidesVisibility: true,
+
+    });
+
 })
