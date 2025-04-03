@@ -7334,6 +7334,7 @@ input[type="radio"] {
 		position: relative;
 		z-index: -2;
 
+
 		img {
 			margin-left: auto;
 			margin-right: auto;
@@ -7608,6 +7609,10 @@ input[type="radio"] {
 
 	.img {
 		width: 100%;
+
+		&.img_mobile {
+			display: none;
+		}
 
 		picture {
 			width: 100%;
@@ -7943,6 +7948,16 @@ input[type="radio"] {
 }
 
 @media screen and (max-width:576px) {
+	.application_block .img {
+		&.img_desktop {
+			display: none;
+		}
+
+		&.img_mobile {
+			display: block;
+		}
+	}
+
 	.service_list .col {
 		width: 50%;
 	}

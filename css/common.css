@@ -6369,6 +6369,9 @@ input[type=radio]:checked {
 .application_block .img {
   width: 100%;
 }
+.application_block .img.img_mobile {
+  display: none;
+}
 .application_block .img picture {
   width: 100%;
 }
@@ -6661,6 +6664,12 @@ input[type=radio]:checked {
   }
 }
 @media screen and (max-width: 576px) {
+  .application_block .img.img_desktop {
+    display: none;
+  }
+  .application_block .img.img_mobile {
+    display: block;
+  }
   .service_list .col {
     width: 50%;
   }
