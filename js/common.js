@@ -808,6 +808,13 @@ $(document).ready(function () {
 
     // new
 
+    if ($('.catalog_filter_select').length) {
+        $('.catalog_filter_select').select2({
+            minimumResultsForSearch: Infinity,
+        });
+    }
+
+
     let offset
     if ($(window).width() > 576) {
         offset = 100;
@@ -832,5 +839,6 @@ $(document).ready(function () {
         watchSlidesVisibility: true,
 
     });
+
 
 })

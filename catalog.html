@@ -18,7 +18,10 @@
 
     <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="vendors/fancybox/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="vendors/select2/select2.min.css">
     <link rel="stylesheet" href="css/common.css?19">
+    <link rel="stylesheet" href="css/catalog.css?1">
+
 </head>
 
 <body class='page_catalog'>
@@ -136,15 +139,10 @@
                     <li> <a class="catalog_variants_item" href="#">Шасси Shacman </a></li>
                 </ul>
                 <div class='catalog_filter'>
-                    <div class='catalog_filter_mobile'>
-                        <div class='catalog_filter_title'>Каталог</div>
-                        <span></span>
-                    </div>
                     <div class='catalog_filter_list'>
                         <div class="catalog_filter_item">
-                            <label for="cabin">Кабина</label>
-                            <select name="cabin" id="cabin" class="catalog_filter_select">
-                                <option value="">Выбор</option>
+                            <select name="cabin" id="cabin" class="catalog_filter_select" data-placeholder="Кабина">
+                                <option value="">Кабина</option>
                                 <option value="2">F3000</option>
                                 <option value="1">X3000 D'long</option>
                                 <option value="4">X5000</option>
@@ -152,9 +150,9 @@
                         </div>
 
                         <div class="catalog_filter_item">
-                            <label for="base">Колесная формула</label>
-                            <select name="base" id="base" class="catalog_filter_select">
-                                <option value="">Выбор</option>
+                            <select name="base" id="base" class="catalog_filter_select"
+                                data-placeholder="Колесная формула">
+                                <option value="">Колесная формула</option>
                                 <option value="2">8 x 4</option>
                                 <option value="1">6 x 4</option>
                                 <option value="3">6 x 6</option>
@@ -162,18 +160,17 @@
                         </div>
 
                         <div class="catalog_filter_item">
-                            <label for="engine">Двигатель</label>
-                            <select name="engine" id="engine" class="catalog_filter_select">
-                                <option value="">Выбор</option>
+                            <select name="engine" id="engine" class="catalog_filter_select"
+                                data-placeholder="Двигатель">
+                                <option value="">Двигатель</option>
                                 <option value="2">Weichai</option>
                                 <option value="1">Cummins</option>
                             </select>
                         </div>
 
                         <div class="catalog_filter_item">
-                            <label for="body">Объем кузова, м3</label>
-                            <select name="body" id="body" class="catalog_filter_select">
-                                <option value="">Выбор</option>
+                            <select name="body" id="body" class="catalog_filter_select" data-placeholder="Объем кузова">
+                                <option value="">Объем кузова</option>
                                 <option value="1">25 м3</option>
                                 <option value="2">35 м3</option>
                                 <option value="3">19.5 м3</option>
@@ -181,127 +178,194 @@
                         </div>
 
                         <div class="catalog_filter_item">
-                            <label for="volume">Объем бочки</label>
-                            <select name="volume" id="volume" class="catalog_filter_select">
-                                <option value="">Выбор</option>
+                            <select name="volume" id="volume" class="catalog_filter_select"
+                                data-placeholder="Объем бочки">
+                                <option value="">Объем бочки</option>
                                 <option value="1">12</option>
                             </select>
                         </div>
                     </div>
 
                 </div>
-                <!-- Добавилась обертка catalog_col для каждого catalog_item -->
                 <div class='catalog_list'>
                     <div class='catalog_col'>
                         <div class='catalog_item'>
                             <div class='block_item'>
-                                <a href="#" class='block_item_text'>
-                                    <span>Самосвал X3000 8x4 550 л.c.</span>
-                                    SX331863366
-                                </a>
                                 <div class='block_item_content_wrapper'>
                                     <div class='block_item_content'>
+                                        <span class='block_item_label'>
+                                            в наличии
+                                        </span>
                                         <a href="#" class='block_item_img'> <img src="imgs/car.jpg" alt=""></a>
-                                        <div class='quick_view' data-open-modal="open_modal">Быстрый просмотр</div>
-                                        <div class='block_item_price'>9 390 000 ₽</div>
+                                        <!-- <div class='quick_view' data-open-modal="open_modal">Быстрый просмотр</div> -->
                                     </div>
                                 </div>
                             </div>
-                            <div class='block_item_bottom'>
+                            <a href="#" class='block_item_title'>Тягач SHACMAN X6000, 2024 г</a>
+                            <div class='block_item_info'>
                                 <ul class='block_item_list'>
-                                    <li><span>Год выпуска:</span> 2022</li>
-                                    <li><span>Топливный бак, л:</span> 500</li>
-                                    <li><span>Состояние техники:</span> Новое</li>
+                                    <li><span>Год выпуска</span> 2022</li>
+                                    <li><span>Топливный бак, л</span> 500</li>
+                                    <li><span>Состояние техники</span> Новое</li>
                                 </ul>
                                 <div class='block_item_btns'>
-                                    <a href="#" class='btn btn_grey'>Подробнее</a>
-                                    <a href="#" class='btn'>Заказать</a>
+                                    <a href="#" class='block_item_btn'>
+                                        <span>подробнее</span>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M2.25 12C2.25 6.61522 6.61522 2.25 12 2.25C17.3848 2.25 21.75 6.61522 21.75 12C21.75 17.3848 17.3848 21.75 12 21.75C6.61522 21.75 2.25 17.3848 2.25 12ZM10.9562 10.5584C12.1025 9.98533 13.3931 11.0206 13.0823 12.2639L12.3733 15.0999L12.4148 15.0792C12.7852 14.894 13.2357 15.0441 13.421 15.4146C13.6062 15.7851 13.4561 16.2356 13.0856 16.4208L13.0441 16.4416C11.8979 17.0147 10.6072 15.9794 10.9181 14.7361L11.6271 11.9001L11.5856 11.9208C11.2151 12.1061 10.7646 11.9559 10.5793 11.5854C10.3941 11.2149 10.5443 10.7644 10.9148 10.5792L10.9562 10.5584ZM12 9C12.4142 9 12.75 8.66421 12.75 8.25C12.75 7.83579 12.4142 7.5 12 7.5C11.5858 7.5 11.25 7.83579 11.25 8.25C11.25 8.66421 11.5858 9 12 9Z" />
+                                        </svg>
+                                    </a>
+                                    <a href="#" class='block_item_btn'>
+                                        <span>узнать<br>
+                                            наличие</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M4.80365 21.6442C4.9793 21.6757 5.15732 21.7003 5.33691 21.7178C5.55516 21.7391 5.77647 21.75 6 21.75C7.3153 21.75 8.54447 21.3731 9.58317 20.7213C10.3569 20.9034 11.1668 21 12 21C17.322 21 21.75 17.0307 21.75 12C21.75 6.96934 17.322 3 12 3C6.67799 3 2.25 6.96934 2.25 12C2.25 14.4086 3.2746 16.5871 4.92371 18.1923C5.15571 18.4182 5.20107 18.6196 5.17822 18.7349C5.05254 19.3685 4.76687 19.9451 4.36357 20.4211C4.19016 20.6258 4.13927 20.9075 4.23008 21.1599C4.3209 21.4123 4.5396 21.597 4.80365 21.6442ZM8.25 10.875C7.62868 10.875 7.125 11.3787 7.125 12C7.125 12.6213 7.62868 13.125 8.25 13.125C8.87132 13.125 9.375 12.6213 9.375 12C9.375 11.3787 8.87132 10.875 8.25 10.875ZM10.875 12C10.875 11.3787 11.3787 10.875 12 10.875C12.6213 10.875 13.125 11.3787 13.125 12C13.125 12.6213 12.6213 13.125 12 13.125C11.3787 13.125 10.875 12.6213 10.875 12ZM15.75 10.875C15.1287 10.875 14.625 11.3787 14.625 12C14.625 12.6213 15.1287 13.125 15.75 13.125C16.3713 13.125 16.875 12.6213 16.875 12C16.875 11.3787 16.3713 10.875 15.75 10.875Z" />
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
+                            <div class='block_item_price'>9 390 000 ₽</div>
+
                         </div>
                     </div>
                     <div class='catalog_col'>
                         <div class='catalog_item'>
                             <div class='block_item'>
-                                <a href="#" class='block_item_text'>
-                                    <span>Самосвал X3000 8x4 550 л.c.</span>
-                                    SX331863366
-                                </a>
                                 <div class='block_item_content_wrapper'>
                                     <div class='block_item_content'>
+                                        <span class='block_item_label'>
+                                            в наличии
+                                        </span>
                                         <a href="#" class='block_item_img'> <img src="imgs/car.jpg" alt=""></a>
-                                        <div class='quick_view' data-open-modal="open_modal">Быстрый просмотр</div>
-                                        <div class='block_item_price'>9 390 000 ₽</div>
+                                        <!-- <div class='quick_view' data-open-modal="open_modal">Быстрый просмотр</div> -->
                                     </div>
                                 </div>
                             </div>
-                            <div class='block_item_bottom'>
+                            <a href="#" class='block_item_title'>Тягач SHACMAN X6000, 2024 г</a>
+                            <div class='block_item_info'>
                                 <ul class='block_item_list'>
-                                    <li><span>Год выпуска:</span> 2022</li>
-                                    <li><span>Топливный бак, л:</span> 500</li>
-                                    <li><span>Состояние техники:</span> Новое</li>
+                                    <li><span>Год выпуска</span> 2022</li>
+                                    <li><span>Топливный бак, л</span> 500</li>
+                                    <li><span>Состояние техники</span> Новое</li>
                                 </ul>
                                 <div class='block_item_btns'>
-                                    <a href="#" class='btn btn_grey'>Подробнее</a>
-                                    <a href="#" class='btn'>Заказать</a>
+                                    <a href="#" class='block_item_btn'>
+                                        <span>подробнее</span>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M2.25 12C2.25 6.61522 6.61522 2.25 12 2.25C17.3848 2.25 21.75 6.61522 21.75 12C21.75 17.3848 17.3848 21.75 12 21.75C6.61522 21.75 2.25 17.3848 2.25 12ZM10.9562 10.5584C12.1025 9.98533 13.3931 11.0206 13.0823 12.2639L12.3733 15.0999L12.4148 15.0792C12.7852 14.894 13.2357 15.0441 13.421 15.4146C13.6062 15.7851 13.4561 16.2356 13.0856 16.4208L13.0441 16.4416C11.8979 17.0147 10.6072 15.9794 10.9181 14.7361L11.6271 11.9001L11.5856 11.9208C11.2151 12.1061 10.7646 11.9559 10.5793 11.5854C10.3941 11.2149 10.5443 10.7644 10.9148 10.5792L10.9562 10.5584ZM12 9C12.4142 9 12.75 8.66421 12.75 8.25C12.75 7.83579 12.4142 7.5 12 7.5C11.5858 7.5 11.25 7.83579 11.25 8.25C11.25 8.66421 11.5858 9 12 9Z" />
+                                        </svg>
+                                    </a>
+                                    <a href="#" class='block_item_btn'>
+                                        <span>узнать<br>
+                                            наличие</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M4.80365 21.6442C4.9793 21.6757 5.15732 21.7003 5.33691 21.7178C5.55516 21.7391 5.77647 21.75 6 21.75C7.3153 21.75 8.54447 21.3731 9.58317 20.7213C10.3569 20.9034 11.1668 21 12 21C17.322 21 21.75 17.0307 21.75 12C21.75 6.96934 17.322 3 12 3C6.67799 3 2.25 6.96934 2.25 12C2.25 14.4086 3.2746 16.5871 4.92371 18.1923C5.15571 18.4182 5.20107 18.6196 5.17822 18.7349C5.05254 19.3685 4.76687 19.9451 4.36357 20.4211C4.19016 20.6258 4.13927 20.9075 4.23008 21.1599C4.3209 21.4123 4.5396 21.597 4.80365 21.6442ZM8.25 10.875C7.62868 10.875 7.125 11.3787 7.125 12C7.125 12.6213 7.62868 13.125 8.25 13.125C8.87132 13.125 9.375 12.6213 9.375 12C9.375 11.3787 8.87132 10.875 8.25 10.875ZM10.875 12C10.875 11.3787 11.3787 10.875 12 10.875C12.6213 10.875 13.125 11.3787 13.125 12C13.125 12.6213 12.6213 13.125 12 13.125C11.3787 13.125 10.875 12.6213 10.875 12ZM15.75 10.875C15.1287 10.875 14.625 11.3787 14.625 12C14.625 12.6213 15.1287 13.125 15.75 13.125C16.3713 13.125 16.875 12.6213 16.875 12C16.875 11.3787 16.3713 10.875 15.75 10.875Z" />
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
+                            <div class='block_item_price'>9 390 000 ₽</div>
+
                         </div>
                     </div>
                     <div class='catalog_col'>
                         <div class='catalog_item'>
                             <div class='block_item'>
-                                <a href="#" class='block_item_text'>
-                                    <span>Самосвал X3000 8x4 550 л.c.</span>
-                                    SX331863366
-                                </a>
                                 <div class='block_item_content_wrapper'>
                                     <div class='block_item_content'>
+                                        <span class='block_item_label'>
+                                            в наличии
+                                        </span>
                                         <a href="#" class='block_item_img'> <img src="imgs/car.jpg" alt=""></a>
-                                        <div class='quick_view' data-open-modal="open_modal">Быстрый просмотр</div>
-                                        <div class='block_item_price'>9 390 000 ₽</div>
+                                        <!-- <div class='quick_view' data-open-modal="open_modal">Быстрый просмотр</div> -->
                                     </div>
                                 </div>
                             </div>
-                            <div class='block_item_bottom'>
+                            <a href="#" class='block_item_title'>Тягач SHACMAN X6000, 2024 г</a>
+                            <div class='block_item_info'>
                                 <ul class='block_item_list'>
-                                    <li><span>Год выпуска:</span> 2022</li>
-                                    <li><span>Топливный бак, л:</span> 500</li>
-                                    <li><span>Состояние техники:</span> Новое</li>
+                                    <li><span>Год выпуска</span> 2022</li>
+                                    <li><span>Топливный бак, л</span> 500</li>
+                                    <li><span>Состояние техники</span> Новое</li>
                                 </ul>
                                 <div class='block_item_btns'>
-                                    <a href="#" class='btn btn_grey'>Подробнее</a>
-                                    <a href="#" class='btn'>Заказать</a>
+                                    <a href="#" class='block_item_btn'>
+                                        <span>подробнее</span>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M2.25 12C2.25 6.61522 6.61522 2.25 12 2.25C17.3848 2.25 21.75 6.61522 21.75 12C21.75 17.3848 17.3848 21.75 12 21.75C6.61522 21.75 2.25 17.3848 2.25 12ZM10.9562 10.5584C12.1025 9.98533 13.3931 11.0206 13.0823 12.2639L12.3733 15.0999L12.4148 15.0792C12.7852 14.894 13.2357 15.0441 13.421 15.4146C13.6062 15.7851 13.4561 16.2356 13.0856 16.4208L13.0441 16.4416C11.8979 17.0147 10.6072 15.9794 10.9181 14.7361L11.6271 11.9001L11.5856 11.9208C11.2151 12.1061 10.7646 11.9559 10.5793 11.5854C10.3941 11.2149 10.5443 10.7644 10.9148 10.5792L10.9562 10.5584ZM12 9C12.4142 9 12.75 8.66421 12.75 8.25C12.75 7.83579 12.4142 7.5 12 7.5C11.5858 7.5 11.25 7.83579 11.25 8.25C11.25 8.66421 11.5858 9 12 9Z" />
+                                        </svg>
+                                    </a>
+                                    <a href="#" class='block_item_btn'>
+                                        <span>узнать<br>
+                                            наличие</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M4.80365 21.6442C4.9793 21.6757 5.15732 21.7003 5.33691 21.7178C5.55516 21.7391 5.77647 21.75 6 21.75C7.3153 21.75 8.54447 21.3731 9.58317 20.7213C10.3569 20.9034 11.1668 21 12 21C17.322 21 21.75 17.0307 21.75 12C21.75 6.96934 17.322 3 12 3C6.67799 3 2.25 6.96934 2.25 12C2.25 14.4086 3.2746 16.5871 4.92371 18.1923C5.15571 18.4182 5.20107 18.6196 5.17822 18.7349C5.05254 19.3685 4.76687 19.9451 4.36357 20.4211C4.19016 20.6258 4.13927 20.9075 4.23008 21.1599C4.3209 21.4123 4.5396 21.597 4.80365 21.6442ZM8.25 10.875C7.62868 10.875 7.125 11.3787 7.125 12C7.125 12.6213 7.62868 13.125 8.25 13.125C8.87132 13.125 9.375 12.6213 9.375 12C9.375 11.3787 8.87132 10.875 8.25 10.875ZM10.875 12C10.875 11.3787 11.3787 10.875 12 10.875C12.6213 10.875 13.125 11.3787 13.125 12C13.125 12.6213 12.6213 13.125 12 13.125C11.3787 13.125 10.875 12.6213 10.875 12ZM15.75 10.875C15.1287 10.875 14.625 11.3787 14.625 12C14.625 12.6213 15.1287 13.125 15.75 13.125C16.3713 13.125 16.875 12.6213 16.875 12C16.875 11.3787 16.3713 10.875 15.75 10.875Z" />
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
+                            <div class='block_item_price'>9 390 000 ₽</div>
+
                         </div>
                     </div>
                     <div class='catalog_col'>
                         <div class='catalog_item'>
                             <div class='block_item'>
-                                <a href="#" class='block_item_text'>
-                                    <span>Самосвал X3000 8x4 550 л.c.</span>
-                                    SX331863366
-                                </a>
                                 <div class='block_item_content_wrapper'>
                                     <div class='block_item_content'>
+                                        <span class='block_item_label'>
+                                            в наличии
+                                        </span>
                                         <a href="#" class='block_item_img'> <img src="imgs/car.jpg" alt=""></a>
-                                        <div class='quick_view' data-open-modal="open_modal">Быстрый просмотр</div>
-                                        <div class='block_item_price'>9 390 000 ₽</div>
+                                        <!-- <div class='quick_view' data-open-modal="open_modal">Быстрый просмотр</div> -->
                                     </div>
                                 </div>
                             </div>
-                            <div class='block_item_bottom'>
+                            <a href="#" class='block_item_title'>Тягач SHACMAN X6000, 2024 г</a>
+                            <div class='block_item_info'>
                                 <ul class='block_item_list'>
-                                    <li><span>Год выпуска:</span> 2022</li>
-                                    <li><span>Топливный бак, л:</span> 500</li>
-                                    <li><span>Состояние техники:</span> Новое</li>
+                                    <li><span>Год выпуска</span> 2022</li>
+                                    <li><span>Топливный бак, л</span> 500</li>
+                                    <li><span>Состояние техники</span> Новое</li>
                                 </ul>
                                 <div class='block_item_btns'>
-                                    <a href="#" class='btn btn_grey'>Подробнее</a>
-                                    <a href="#" class='btn'>Заказать</a>
+                                    <a href="#" class='block_item_btn'>
+                                        <span>подробнее</span>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M2.25 12C2.25 6.61522 6.61522 2.25 12 2.25C17.3848 2.25 21.75 6.61522 21.75 12C21.75 17.3848 17.3848 21.75 12 21.75C6.61522 21.75 2.25 17.3848 2.25 12ZM10.9562 10.5584C12.1025 9.98533 13.3931 11.0206 13.0823 12.2639L12.3733 15.0999L12.4148 15.0792C12.7852 14.894 13.2357 15.0441 13.421 15.4146C13.6062 15.7851 13.4561 16.2356 13.0856 16.4208L13.0441 16.4416C11.8979 17.0147 10.6072 15.9794 10.9181 14.7361L11.6271 11.9001L11.5856 11.9208C11.2151 12.1061 10.7646 11.9559 10.5793 11.5854C10.3941 11.2149 10.5443 10.7644 10.9148 10.5792L10.9562 10.5584ZM12 9C12.4142 9 12.75 8.66421 12.75 8.25C12.75 7.83579 12.4142 7.5 12 7.5C11.5858 7.5 11.25 7.83579 11.25 8.25C11.25 8.66421 11.5858 9 12 9Z" />
+                                        </svg>
+                                    </a>
+                                    <a href="#" class='block_item_btn'>
+                                        <span>узнать<br>
+                                            наличие</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M4.80365 21.6442C4.9793 21.6757 5.15732 21.7003 5.33691 21.7178C5.55516 21.7391 5.77647 21.75 6 21.75C7.3153 21.75 8.54447 21.3731 9.58317 20.7213C10.3569 20.9034 11.1668 21 12 21C17.322 21 21.75 17.0307 21.75 12C21.75 6.96934 17.322 3 12 3C6.67799 3 2.25 6.96934 2.25 12C2.25 14.4086 3.2746 16.5871 4.92371 18.1923C5.15571 18.4182 5.20107 18.6196 5.17822 18.7349C5.05254 19.3685 4.76687 19.9451 4.36357 20.4211C4.19016 20.6258 4.13927 20.9075 4.23008 21.1599C4.3209 21.4123 4.5396 21.597 4.80365 21.6442ZM8.25 10.875C7.62868 10.875 7.125 11.3787 7.125 12C7.125 12.6213 7.62868 13.125 8.25 13.125C8.87132 13.125 9.375 12.6213 9.375 12C9.375 11.3787 8.87132 10.875 8.25 10.875ZM10.875 12C10.875 11.3787 11.3787 10.875 12 10.875C12.6213 10.875 13.125 11.3787 13.125 12C13.125 12.6213 12.6213 13.125 12 13.125C11.3787 13.125 10.875 12.6213 10.875 12ZM15.75 10.875C15.1287 10.875 14.625 11.3787 14.625 12C14.625 12.6213 15.1287 13.125 15.75 13.125C16.3713 13.125 16.875 12.6213 16.875 12C16.875 11.3787 16.3713 10.875 15.75 10.875Z" />
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
+                            <div class='block_item_price'>9 390 000 ₽</div>
+
                         </div>
                     </div>
                 </div>
@@ -661,6 +725,7 @@
     <script src="vendors/fancybox/jquery.fancybox.min.js"></script>
     <script src="vendors/imask/imask.js"></script>
     <script src="vendors/masonry/masonry.pkgd.min.js"></script>
+    <script src="vendors/select2/select2.full.min.js"></script>
     <script src="js/common.js?15"></script>
 </body>
 
